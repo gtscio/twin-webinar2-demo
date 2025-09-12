@@ -1,0 +1,16 @@
+{
+	"did": "did:iota:testnet:0x858478793a53bae2136466dc8097466337e4189a19943f928fb27d39a5d5badd",
+	"privateKeyJwk": {
+		"key_ops": ["sign"],
+		"ext": true,
+		"crv": "Ed25519",
+		"d": "V7u489doIWXjbuTIlNIAQu7iabg9WompDqmvwKNNXy4",
+		"x": "J2LZ3zZAmVKW0_aO7assbtGxRGdkfNx-6cYDzm0fuqg",
+		"kty": "OKP",
+		"kid": "U39wsIq4SDogJ9-oLRkBFJpJ_xUTfXNQcAUj5jBhF14",
+		"alg": "EdDSA",
+		"use": "sig"
+	},
+	"privateKeyVerificationMethodRaw": "0x57bbb8f3d7682165e36ee4c894d20042eee269b83d5a89a90ea9afc0a34d5f2e",
+	"publicKeyVerificationMethodRaw": "0x2762d9df3640995296d3f68eedab2c6ed1b14467647cdc7ee9c603ce6d1fbaa8"
+}
