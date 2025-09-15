@@ -8,13 +8,13 @@
 			"type": "CompliantCredential",
 			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-legal-entity.json",
 			"credentialType": "VerifiableCredential",
-			"digestSRI": "sha256-/MYOroQe7+kYd3YfI61FcsJ1OCCBJoGlc6MQYbadyQU="
+			"digestSRI": "sha256-vv+RZT9BS4H5KZdf5yRRZEmwKecvGvMs59Z/zfAnMKk="
 		},
 		{
 			"type": "CompliantCredential",
 			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json",
 			"credentialType": "VerifiableCredential",
-			"digestSRI": "sha256-mQ54Te4nh4vyRRSFouRucIYheTCwKIBthQoW+uwcHB8="
+			"digestSRI": "sha256-Kxxy1/2z2cLQWyJx2W21K2jKYyxYmBb8iufjGDDYuvw="
 		}
 	]
 }

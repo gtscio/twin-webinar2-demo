@@ -1,16 +1,14 @@
 {
-	"did": "did:iota:testnet:0x858478793a53bae2136466dc8097466337e4189a19943f928fb27d39a5d5badd",
+	"did": "did:iota:testnet:0xcfff2995cb976c5706c8a0f908c4c9819d575bf85797d1294657dd1a0775899d",
 	"privateKeyJwk": {
-		"key_ops": ["sign"],
-		"ext": true,
-		"crv": "Ed25519",
-		"d": "V7u489doIWXjbuTIlNIAQu7iabg9WompDqmvwKNNXy4",
-		"x": "J2LZ3zZAmVKW0_aO7assbtGxRGdkfNx-6cYDzm0fuqg",
+		"kid": "z2Tv-YWZ0yZzWhkuF5pYuI8A9NmzyMJxOslRg6j7xF4",
 		"kty": "OKP",
-		"kid": "U39wsIq4SDogJ9-oLRkBFJpJ_xUTfXNQcAUj5jBhF14",
+		"use": "sig",
 		"alg": "EdDSA",
-		"use": "sig"
+		"crv": "Ed25519",
+		"x": "odmpVvhpohv7sOSnf88DQMp30NKvK1APxiGL7nwaeA8",
+		"d": "loL5b0Dv2SymVjmN8Dc9zhEk4Ptcft3uK46dLfhc8So"
 	},
-	"privateKeyVerificationMethodRaw": "0x57bbb8f3d7682165e36ee4c894d20042eee269b83d5a89a90ea9afc0a34d5f2e",
-	"publicKeyVerificationMethodRaw": "0x2762d9df3640995296d3f68eedab2c6ed1b14467647cdc7ee9c603ce6d1fbaa8"
+	"privateKeyVerificationMethodRaw": "0x9682f96f40efd92ca656398df0373dce1124e0fb5c7eddee2b8e9d2df85cf12a",
+	"publicKeyVerificationMethodRaw": "0xa1d9a956f869a21bfbb0e4a77fcf0340ca77d0d2af2b500fc6218bee7c1a780f"
 }

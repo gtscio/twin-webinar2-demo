@@ -53,7 +53,8 @@ const proof = {
 signer
 	.createProof(jsonObject, proof, privateKeyJwk)
 	.then(calculatedProof => {
-		console.log(JSON.stringify(calculatedProof, null, 2));
+		const signedCredential = { ...jsonObject, proof: calculatedProof };
+		console.log(JSON.stringify(signedCredential, null, 2));
 		return 0;
 	})
 	.catch(err => {
