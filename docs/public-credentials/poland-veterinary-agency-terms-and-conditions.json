@@ -1,0 +1,30 @@
+{
+	"@context": [
+		"https://www.w3.org/ns/credentials/v2",
+		"https://w3id.org/security/suites/jws-2020/v1"
+	],
+	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-veterinary-agency-terms-and-conditions.json",
+	"type": [
+		"VerifiableCredential"
+	],
+	"issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+	"validFrom": "2025-09-15T14:07:25Z",
+	"validUntil": "2027-12-27T22:07:25Z",
+	"credentialSubject": {
+		"@context": "https://w3id.org/gaia-x/development",
+		"digestSRI": "sha256-0aXialGx6tzl9LQVIoVSkkDv6LCdYvJIcy4e5l7vNjU=",
+		"id": "https://gtscio.github.io/twin-webinar2-demo/docs/terms-and-conditions.json",
+		"type": "TermsAndConditions"
+	},
+	"proof": {
+		"type": "JsonWebSignature2020",
+		"verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+		"proofPurpose": "assertionMethod",
+		"created": "2025-03-11T15:48:28.943+01:00",
+		"@context": [
+			"https://www.w3.org/ns/credentials/v2",
+			"https://w3id.org/security/suites/jws-2020/v1"
+		],
+		"jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..BYyrUelJP-V3eiuIJEDzSSOXKwoAEyA43oHbJK9LpmbHnsl6vrnWsdTBXLPE_Zcaa36pbsNI0mlM9wNmnSDUAw"
+	}
+}

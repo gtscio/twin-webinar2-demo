@@ -1,0 +1,20 @@
+{
+	"credentialSubject": {
+		"@context": "https://w3id.org/gaia-x/development",
+		"type": "LegalPerson"
+	},
+	"evidence": [
+		{
+			"type": "CompliantCredential",
+			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-legal-entity.json",
+			"credentialType": "VerifiableCredential",
+			"digestSRI": "sha256-wFDHI0hqlwDEytqFcV3dOUJDPz2TCHD2K0SCOMX5qT4="
+		},
+		{
+			"type": "CompliantCredential",
+			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-terms-and-conditions.json",
+			"credentialType": "VerifiableCredential",
+			"digestSRI": "sha256-9yXsWPMzaH6KUblEZJErl09QpsK5tGLjYLXWQtaERAA="
+		}
+	]
+}

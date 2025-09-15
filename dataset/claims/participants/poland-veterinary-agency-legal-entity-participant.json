@@ -1,5 +1,5 @@
 {
-	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/piorin-legal-entity.json",
+	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-veterinary-agency-legal-entity.json",
 	"credentialSubject": {
 		"@context": [
 			"https://w3id.org/gaia-x/development",
@@ -20,9 +20,9 @@
 			"type": "Address",
 			"countryCode": "PL"
 		},
-		"description": "State Plant Health and Seed Inspection Service",
-		"description_pl": "Państwowa Inspekcja Ochrony Roślin i Nasiennictwa"
-	},
-	"legalName": "PIORIN",
-	"isicV4": "8413"
+		"description": "General Veterinary Inspectorate",
+		"description_pl": "Główny Inspektorat Weterynarii",
+		"legalName": "GIW",
+		"isicV4": "8413"
+	}
 }
