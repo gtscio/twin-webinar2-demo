@@ -15,8 +15,8 @@
 		"legalAddress": {
 			"type": "Address",
 			"countryCode": "PL"
-		}
-	},
-	"legalName": "Kurczak Food",
-	"isicV4": "1010"
+		},
+		"legalName": "Kurczak Food",
+		"isicV4": "1010"
+	}
 }
