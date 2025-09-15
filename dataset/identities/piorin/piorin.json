@@ -1,5 +1,6 @@
 {
 	"did": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+	"indexPrivateKeyDidController": 0,
 	"privateKeyJwk": {
 		"kid": "Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
 		"kty": "OKP",

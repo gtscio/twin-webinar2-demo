@@ -1,0 +1,20 @@
+{
+	"credentialSubject": {
+		"@context": "https://w3id.org/gaia-x/development",
+		"type": "LegalPerson"
+	},
+	"evidence": [
+		{
+			"type": "CompliantCredential",
+			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-legal-entity.json",
+			"credentialType": "VerifiableCredential",
+			"digestSRI": "sha256-/MYOroQe7+kYd3YfI61FcsJ1OCCBJoGlc6MQYbadyQU="
+		},
+		{
+			"type": "CompliantCredential",
+			"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json",
+			"credentialType": "VerifiableCredential",
+			"digestSRI": "sha256-mQ54Te4nh4vyRRSFouRucIYheTCwKIBthQoW+uwcHB8="
+		}
+	]
+}

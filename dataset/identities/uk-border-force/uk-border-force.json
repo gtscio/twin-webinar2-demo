@@ -1,8 +1,15 @@
 {
     "did": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975",
+	"indexPrivateKeyDidController": 3,
     "privateKeyJwk": {
-		
+		"kid": "AG9ks57_6f3OULHMIy_gfAfWtkSxi8sJoHPVQcA20Yk",
+		"kty": "OKP",
+		"use": "enc",
+		"alg": "EdDSA",
+		"crv": "Ed25519",
+		"x": "BZoSned3Lx002CpDyCsNh5HWfka1TdZraBnyeHC-gYU",
+		"d": "oRzuk3jwfSyyvodWHA-ViQTGWhLAIp4uadtXDJOEgHI"
 	},
-	"privateKeyVerificationMethodRaw": "",
-	"publicKeyVerificationMethodRaw": ""
+	"privateKeyVerificationMethodRaw": "0xa11cee9378f07d2cb2be87561c0f958904c65a12c0229e2e69db570c93848072",
+	"publicKeyVerificationMethodRaw": "0x059a129de7772f1d34d82a43c82b0d8791d67e46b54dd66b6819f27870be8185"
 }

@@ -5,9 +5,9 @@
 			"https://w3id.org/gaia-x/development",
 			{
 				"isicV4": "https://schema.org/isicV4",
-				"description": {
-					"@id": "schema:description",
-					"@container": "@language"
+				"description_pl": {
+					"@id": "https://schema.org/description",
+					"@language": "pl"
 				}
 			}
 		],
@@ -20,11 +20,9 @@
 			"type": "Address",
 			"countryCode": "PL"
 		},
-		"description": {
-			"en": "State Plant Health and Seed Inspection Service",
-			"pl": "Państwowa Inspekcja Ochrony Roślin i Nasiennictwa"
-		},
-		"legalName": "PIORIN",
-		"isicV4": "8413"
-	}
+		"description": "State Plant Health and Seed Inspection Service",
+		"description_pl": "Państwowa Inspekcja Ochrony Roślin i Nasiennictwa"
+	},
+	"legalName": "PIORIN",
+	"isicV4": "8413"
 }

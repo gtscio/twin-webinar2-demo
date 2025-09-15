@@ -1,0 +1,22 @@
+{
+	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-exporter-legal-entity.json",
+	"credentialSubject": {
+		"@context": [
+			"https://w3id.org/gaia-x/development",
+			{
+				"isicV4": "https://schema.org/isicV4"
+			}
+		],
+		"type": "LegalPerson",
+		"registrationNumber": {
+			"type": "EORI",
+			"eori": "PL527288386100000"
+		},
+		"legalAddress": {
+			"type": "Address",
+			"countryCode": "PL"
+		}
+	},
+	"legalName": "Kurczak Food",
+	"isicV4": "1010"
+}
