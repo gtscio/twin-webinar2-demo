@@ -1,0 +1,26 @@
+{
+	"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/uk-fsa-legal-entity.json",
+	"credentialSubject": {
+		"@context": [
+			"https://w3id.org/gaia-x/development",
+			{
+				"isicV4": "https://schema.org/isicV4"
+			}
+		],
+		"type": "LegalPerson",
+		"registrationNumber": {
+			"type": "VatID",
+			"vatID": "888-847-046",
+			"countryCode": "GB"
+		},
+		"legalAddress": {
+			"type": "Address",
+			"countryCode": "GB",
+			"locality": "London",
+			"streetAddress": "11th Floor, 64 Victoria Street"
+		},
+		"description": "UK Food Standards Agency",
+		"legalName": "Food Standards Agency",
+		"isicV4": "8411"
+	}
+}

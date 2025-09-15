@@ -1,0 +1,20 @@
+{
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "type": "LegalPerson"
+    },
+    "evidence": [
+        {
+            "type": "CompliantCredential",
+            "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/uk-fsa-legal-entity.json",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": "sha256-NihmOo3VS8lLGnC6Sin/DhmLQMI61yObynlVI05G794="
+        },
+        {
+            "type": "CompliantCredential",
+            "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/uk-fsa-terms-and-conditions.json",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": "sha256-yMrms2Io1Tay2Y1+t4tvo46CVlsVaPc23aasbaN+Z74="
+        }
+    ]
+}
