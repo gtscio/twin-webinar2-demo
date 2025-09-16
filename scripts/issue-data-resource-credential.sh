@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#!/bin/sh
 if [ "$#" -ne 3 ]; then echo "Please provide a participant name, a data resource name and ID URL"
     exit -1
 fi

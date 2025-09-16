@@ -1,0 +1,14 @@
+{
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "type": "ServiceOffering"
+    },
+    "evidence": [
+        {
+            "type": "CompliantCredential",
+            "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-vet-cert-by-id.json",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": "sha256-qR/qYRNp+oKY+OJZqqCWDwUPsSs6D+afCIa77NkbDQA="
+        }
+    ]
+}

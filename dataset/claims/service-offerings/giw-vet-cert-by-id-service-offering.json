@@ -1,11 +1,11 @@
 {
-    "id": "https://twinfoundation.github.io/federated-catalogue/public-web/test-credentials/service-offering-vet-cert.json",
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-vet-cert-by-id.json",
     "credentialSubject": {
         "@context": "https://w3id.org/gaia-x/development",
-        "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567",
+        "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567-by-id",
         "type": "ServiceOffering",
-        "name": "Veterinary Documents Service Offering",
-        "description": "Allows to retrieve Veterinary Certification Documents by Id",
+        "name": "VetCert Service Offering",
+        "description": "Allows to retrieve Veterinary Certificates by Id to exporters registered in Poland",
         "servicePolicy": {
             "@context": [
                 "http://www.w3.org/ns/odrl.jsonld",
