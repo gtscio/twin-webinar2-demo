@@ -1,0 +1,48 @@
+{
+    "id": "https://twinfoundation.github.io/federated-catalogue/public-web/test-credentials/service-offering-vet-cert.json",
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567",
+        "type": "ServiceOffering",
+        "name": "Veterinary Documents Service Offering",
+        "description": "Allows to retrieve Veterinary Certification Documents by Id",
+        "servicePolicy": {
+            "@context": [
+                "http://www.w3.org/ns/odrl.jsonld",
+                {
+                    "twin": "https://w3id.org/twin/odrl/",
+                    "jsonPathSelector": "twin:jsonPathSelector"
+                }
+            ],
+            "@type": "Agreement",
+            "uid": "http://example.com/policy:1010",
+            "permission": [
+                {
+                    "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+                    "assignee": {
+                        "@type": "PartyCollection",
+                        "refinement": {
+                            "leftOperand": {
+                                "@id": "https://w3id.org/twin/odrl/propertyValue",
+                                "jsonPathSelector": ".legalAddress.countryCode"
+                            },
+                            "operator": "eq",
+                            "rightOperand": "PL"
+                        }
+                    },
+                    "target": {
+                        "type": ["Asset", "https://vocabulary.uncefact.org/Document"]
+                    },
+                    "action": "read"
+                }
+            ]
+        },
+        "aggregationOfResources": [
+            "https://twin.example.org/data-resources/vet-cert-doc-6ce567"
+        ],
+        "providedBy": {
+            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+            "type": "LegalPerson"
+        }
+    }
+}

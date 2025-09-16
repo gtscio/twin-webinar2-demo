@@ -1,0 +1,14 @@
+{
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "type": "DataResource"
+    },
+    "evidence": [
+        {
+            "type": "CompliantCredential",
+            "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": "sha256-jvKMQZUXnoW+FlcHDneLg27ryou+uT/J4WTLgujFurk="
+        }
+    ]
+}

@@ -1,22 +1,19 @@
 {
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-1.json",
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
     "credentialSubject": {
         "@context": [
             "https://w3id.org/gaia-x/development",
             {
-                "conformsTo": "http://purl.org/dc/terms/conformsTo",
-                "schema": {
-                    "@id": "https://schema.twindev.org/federated-catalogue/schema",
-                    "@type": "@json"
-                }
+                "conformsTo": "http://purl.org/dc/terms/conformsTo"
             }
         ],
+        "id": "https://twin.example.org/data-resources/vet-cert-doc-6ce567",
         "type": "DataResource",
         "producedBy": {
             "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
             "type": "LegalPerson"
         },
-        "exposedThrough": "https://my-ds-connectors.example.org/piorin-ds-connector",
+        "exposedThrough": "https://my-ds-connectors.example.org/giw-ds-connector",
         "copyrightOwnedBy": {
             "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
             "type": "LegalPerson"
@@ -24,21 +21,23 @@
         "license": "http://licenses.example.org/phyto-doc",
         "conformsTo": {
             "type": "JsonSchema",
-            "schema": {
+            "jsonSchema": {
                 "type": "object",
                 "properties": {
                     "type": {
                         "type": "string",
                         "const": "Document"
                     },
-                    "documentTypeCode":  {
+                    "documentTypeCode": {
                         "type": "string",
-                        "const": "unece:"
+                        "const": "unece:DocumentCodeList#853"
                     },
-                    "issuanceCountry": {
-                        
+                    "issuerParty": {
+                        "type": "string",
+                        "const": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567"
                     }
                 }
+            }
         },
         "resourcePolicy": {
             "@context": [
@@ -49,13 +48,11 @@
             "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
             "permission": [
                 {
-                    "target": {
-                        "type": "https://vocabulary.uncefact.org/Document"
-                    },
-                    "action": "extract"
+                    "target": "https://twin.example.org/data-resources/vet-doc-6ce567",
+                    "action": "read"
                 }
             ]
         },
-        "name": "Phyto-sanitary Documents Data Resource"
+        "name": "Veterinary Certificate Documents Data Resource"
     }
 }
