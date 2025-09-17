@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-data-resource-docs.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+  "validFrom": "2025-09-17T17:19:06Z",
+  "validUntil": "2027-12-30T01:19:06Z",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/gaia-x/development",
+      {
+        "conformsTo": "http://purl.org/dc/terms/conformsTo"
+      }
+    ],
+    "conformsTo": {
+      "@context": "https://www.w3.org/ns/credentials/v2",
+      "jsonSchema": {
+        "properties": {
+          "documentTypeCode": {
+            "pattern": "unece:DocumentCodeList#[1-9]+",
+            "type": "string"
+          },
+          "type": {
+            "const": "Document",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "documentTypeCode"
+        ],
+        "type": "object"
+      },
+      "type": "JsonSchema"
+    },
+    "copyrightOwnedBy": {
+      "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+      "type": "LegalPerson"
+    },
+    "exposedThrough": "https://my-ds-connectors.example.org/ffw-ds-connector",
+    "id": "https://twin.example.org/data-resources/ffw-docs-2f246",
+    "license": "http://licenses.example.org/ffw-data",
+    "name": "Documents Data Resource offered by the Freight Forwarder",
+    "producedBy": {
+      "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+      "type": "LegalPerson"
+    },
+    "resourcePolicy": {
+      "@context": [
+        "http://www.w3.org/ns/odrl.jsonld"
+      ],
+      "@type": "Offer",
+      "assigner": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+      "permission": [
+        {
+          "action": "read",
+          "target": "https://twin.example.org/data-resources/ffw-docs-2f246"
+        }
+      ],
+      "uid": "http://example.com/policy-ffw-data-resource:1050"
+    },
+    "type": "DataResource"
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246#GSDiSNb4AWy2am18nq_MsflXHRsjBQ4DPLJOHYNnZxY",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..QgvtW7tKGRDudw0FMIMll2KDB2Ati2giBhIESQICWjvPMZH4Wg6SN7dvIIEZWorXduQ82MO3ZOLHa8OPDzHADg"
+  }
+}
