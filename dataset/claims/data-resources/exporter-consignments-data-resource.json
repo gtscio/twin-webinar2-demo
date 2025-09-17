@@ -32,7 +32,10 @@
                     "globalId": {
                         "type": "string"
                     },
-                    "consignorParty": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
+                    "consignorParty": {
+                        "type": "string",
+                        "const": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
+                    }
                 },
                 "required": [
                     "type",

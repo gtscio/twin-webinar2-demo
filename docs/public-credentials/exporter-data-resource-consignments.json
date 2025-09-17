@@ -8,8 +8,8 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
-  "validFrom": "2025-09-17T17:10:27Z",
-  "validUntil": "2027-12-30T01:10:27Z",
+  "validFrom": "2025-09-17T17:15:33Z",
+  "validUntil": "2027-12-30T01:15:33Z",
   "credentialSubject": {
     "@context": [
       "https://w3id.org/gaia-x/development",
@@ -21,7 +21,10 @@
       "@context": "https://www.w3.org/ns/credentials/v2",
       "jsonSchema": {
         "properties": {
-          "consignorParty": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+          "consignorParty": {
+            "const": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+            "type": "string"
+          },
           "globalId": {
             "type": "string"
           },
@@ -94,6 +97,6 @@
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kEdbUEW2lb5J8uAvxLcQmutRaupAs_dNNCcweA6JVsRZpWnT9cP-XxWSbYZbuIZ-7MSo5MqomCZp7-HZW6RlAw"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..po4h0lKzpoQ4pfkU4VrKwbXwsv8YXFyDD4YZBxs-B3DezHTVajAXDQ8u7ueZTeDcxtA1sXEYm6XaEzsYisDnAw"
   }
 }
