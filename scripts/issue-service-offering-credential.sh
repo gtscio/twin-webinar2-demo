@@ -4,7 +4,7 @@ if [ "$#" -ne 3 ]; then echo "Please provide a participant name, a service offer
     exit -1
 fi
 
-docker run -it -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
+docker run -i -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
 --claims-file "/ext/claims/service-offerings/$2-service-offering.json" --template-file /ext/templates/template.json \
 --trusted-issuer-file "/ext/identities/$1/$1.json" --vc-version 2 \
 --subject-did "$3" \

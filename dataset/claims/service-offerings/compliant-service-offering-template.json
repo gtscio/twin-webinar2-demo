@@ -1,0 +1,14 @@
+{
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "type": "ServiceOffering"
+    },
+    "evidence": [
+        {
+            "type": "CompliantCredential",
+            "id": "",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": ""
+        }
+    ]
+}

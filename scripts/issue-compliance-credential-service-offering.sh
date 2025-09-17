@@ -3,7 +3,7 @@ if [ "$#" -ne 2 ]; then echo "Please provide a service offeringname and service 
     exit -1
 fi
 
-docker run -it -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
+docker run -i -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
 --claims-file "/ext/claims/service-offerings/$1-service-offering-compliant.json" \
 --template-file /ext/templates/compliance-credential-template.json \
 --subject-did $2 --trusted-issuer-file /ext/identities/clearing-house/clearing-house.json \

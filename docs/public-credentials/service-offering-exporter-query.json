@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-exporter-query.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+  "validFrom": "2025-09-17T17:37:52Z",
+  "validUntil": "2027-12-30T01:37:52Z",
+  "credentialSubject": {
+    "@context": "https://w3id.org/gaia-x/development",
+    "aggregationOfResources": [
+      "https://twin.example.org/data-resources/exporter-docs-817a9d",
+      "https://twin.example.org/data-resources/exporter-consignments-817a9d"
+    ],
+    "description": "Allows to retrieve Consignment and Documents Data from Poland Exporter",
+    "id": "https://twin.example.org/service-offerings/exporter-query-service",
+    "name": "Query Service Offering for Exporter",
+    "providedBy": {
+      "id": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+      "type": "LegalPerson"
+    },
+    "servicePolicy": {
+      "@context": [
+        "http://www.w3.org/ns/odrl.jsonld"
+      ],
+      "@type": "Agreement",
+      "assignee": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+      "assigner": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+      "description": "Allow the Freight Forwarder to query this service",
+      "permission": [
+        {
+          "action": "read",
+          "target": {
+            "type": [
+              "Asset",
+              "https://vocabulary.uncefact.org/Document"
+            ]
+          }
+        },
+        {
+          "action": "read",
+          "target": {
+            "type": [
+              "Asset",
+              "https://vocabulary.uncefact.org/Consignment"
+            ]
+          }
+        }
+      ],
+      "uid": "http://example.com/policy-exporter-offering:1010"
+    },
+    "type": "ServiceOffering"
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d#bcQWcv9Jw-tXoQSspSsPx_Hpl-oDQuTqmhq5QwfwXPs",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Kl1grslxBY0oVmv3_jUigYARblWem5QAdyttQoFC5Hw9n8jZjiT1q5WT3l82F-9kOodJgrvKnMe77WDVXbMKCQ"
+  }
+}
