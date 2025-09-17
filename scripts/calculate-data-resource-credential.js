@@ -45,7 +45,7 @@ exec(commandLine, (error, stdout, stderr) => {
         // Now it is needed to calculate the digest
         const digestCommand = `node ./calculateDigest.js "$(cat ${credentialPath})"`;
         exec(digestCommand, (error, stdout, stderr) => {
-            const digest = stdout;
+            const digest = stdout.trim();
 
             const claimsPath = "../dataset/claims/data-resources";
             const claimsTemplateFile = path.resolve(path.join(claimsPath, "compliant-data-resource-template.json"));

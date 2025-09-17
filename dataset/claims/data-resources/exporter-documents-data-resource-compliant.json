@@ -8,7 +8,7 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/exporter-data-resource-docs.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-qEpPn/NPp9irf41c0/6IX7EykMPZ2QlFR7v5+yLgEQg=\n"
+      "digestSRI": "sha256-BcbkblhK5raxHuUD/4Ivec4Yab629bZJ4Zwp2AcpjVY="
     }
   ]
 }
