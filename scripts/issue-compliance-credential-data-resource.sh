@@ -3,7 +3,7 @@ if [ "$#" -ne 2 ]; then echo "Please provide a data resource name and data resou
     exit -1
 fi
 
-docker run -it -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
+docker run -i -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc create \
 --claims-file "/ext/claims/data-resources/$1-data-resource-compliant.json" \
 --template-file /ext/templates/compliance-credential-template.json \
 --subject-did $2 --trusted-issuer-file /ext/identities/clearing-house/clearing-house.json \
