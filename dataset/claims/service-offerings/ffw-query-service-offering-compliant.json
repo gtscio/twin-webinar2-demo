@@ -1,0 +1,14 @@
+{
+  "credentialSubject": {
+    "@context": "https://w3id.org/gaia-x/development",
+    "type": "ServiceOffering"
+  },
+  "evidence": [
+    {
+      "type": "CompliantCredential",
+      "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-ffw-query.json",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": "sha256-JcSYKxpo4S29LreQdXn7uigP/Aeh2Y0UzZiIRatOwUU="
+    }
+  ]
+}
