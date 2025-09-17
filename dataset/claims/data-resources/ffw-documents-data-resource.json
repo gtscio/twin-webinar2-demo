@@ -1,0 +1,56 @@
+{
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-data-resource-docs.json",
+    "credentialSubject": {
+        "@context": [
+            "https://w3id.org/gaia-x/development",
+            {
+                "conformsTo": "http://purl.org/dc/terms/conformsTo"
+            }
+        ],
+        "id": "https://twin.example.org/data-resources/ffw-docs-2f246",
+        "type": "DataResource",
+        "producedBy": {
+            "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+            "type": "LegalPerson"
+        },
+        "exposedThrough": "https://my-ds-connectors.example.org/ffw-ds-connector",
+        "copyrightOwnedBy": {
+            "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+            "type": "LegalPerson"
+        },
+        "license": "http://licenses.example.org/ffw-data",
+        "conformsTo": {
+            "@context": "https://www.w3.org/ns/credentials/v2",
+            "type": "JsonSchema",
+            "jsonSchema": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "const": "Document"
+                    },
+                    "documentTypeCode": {
+                        "type": "string",
+                        "pattern": "unece:DocumentCodeList#[1-9]+"
+                    }
+                },
+                "required": ["type", "documentTypeCode"]
+            }
+        },
+        "resourcePolicy": {
+            "@context": [
+                "http://www.w3.org/ns/odrl.jsonld"
+            ],
+            "@type": "Offer",
+            "uid": "http://example.com/policy-ffw-data-resource:1050",
+            "assigner": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+            "permission": [
+                {
+                    "target": "https://twin.example.org/data-resources/ffw-docs-2f246",
+                    "action": "read"
+                }
+            ]
+        },
+        "name": "Documents Data Resource offered by the Freight Forwarder"
+    }
+}

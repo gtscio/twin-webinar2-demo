@@ -45,7 +45,7 @@
                 "http://www.w3.org/ns/odrl.jsonld"
             ],
             "@type": "Offer",
-            "uid": "http://example.com/policy:1010",
+            "uid": "http://example.com/policy-data-resource-giw:1010",
             "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
             "permission": [
                 {

@@ -1,0 +1,78 @@
+{
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/exporter-data-resource-consignments.json",
+    "credentialSubject": {
+        "@context": [
+            "https://w3id.org/gaia-x/development",
+            {
+                "conformsTo": "http://purl.org/dc/terms/conformsTo"
+            }
+        ],
+        "id": "https://twin.example.org/data-resources/exporter-consignments-817a9d",
+        "type": "DataResource",
+        "producedBy": {
+            "id": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+            "type": "LegalPerson"
+        },
+        "exposedThrough": "https://my-ds-connectors.example.org/exporter-ds-connector",
+        "copyrightOwnedBy": {
+            "id": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+            "type": "LegalPerson"
+        },
+        "license": "http://licenses.example.org/exporter-data",
+        "conformsTo": {
+            "@context": "https://www.w3.org/ns/credentials/v2",
+            "type": "JsonSchema",
+            "jsonSchema": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "const": "Consignment"
+                    },
+                    "globalId": {
+                        "type": "string"
+                    },
+                    "consignorParty": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
+                },
+                "required": [
+                    "type",
+                    "globalId",
+                    "consignorParty"
+                ]
+            }
+        },
+        "resourcePolicy": [
+            {
+                "@context": [
+                    "http://www.w3.org/ns/odrl.jsonld"
+                ],
+                "@type": "Offer",
+                "uid": "http://example.com/policy-exporter-data-resource:6050",
+                "assigner": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+                "permission": [
+                    {
+                        "target": "https://twin.example.org/data-resources/exporter-consignments-817a9d",
+                        "action": "read"
+                    }
+                ]
+            },
+            {
+                "@context": [
+                    "http://www.w3.org/ns/odrl.jsonld"
+                ],
+                "description": "Permissions over this Data Resource are given to the FFW as well",
+                "@type": "Agreement",
+                "uid": "http://example.com/policy-exporter-data-resource:6750",
+                "assigner": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+                "assignee": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+                "permission": [
+                    {
+                        "target": "https://twin.example.org/data-resources/exporter-consignments-817a9d",
+                        "action": "read"
+                    }
+                ]
+            }
+        ],
+        "name": "Export Consignments Data Resource"
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-ffw-query.json",
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "id": "https://twin.example.org/service-offerings/ffw-query-service",
+        "type": "ServiceOffering",
+        "name": "Query Service Offering for Freight Forwarder",
+        "description": "Allows to retrieve Consignment and Documents Data",
+        "servicePolicy": [
+            {
+                "@context": [
+                    "http://www.w3.org/ns/odrl.jsonld",
+                    {
+                        "twin": "https://w3id.org/twin/odrl/",
+                        "jsonPathSelector": "twin:jsonPathSelector"
+                    }
+                ],
+                "description": "Allow the UK FSA to query this service",
+                "@type": "Agreement",
+                "uid": "http://example.com/policy0-ffw-offering:1010",
+                "assigner": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+                "assignee": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975",
+                "permission": [
+                    {
+                        "target": {
+                            "type": [
+                                "Asset",
+                                "https://vocabulary.uncefact.org/Consignment"
+                            ]
+                        },
+                        "constraint": {
+                            "leftOperand": {
+                                "@id": "https://w3id.org/twin/odrl/propertyValue",
+                                "jsonPathSelector": ".destinationCountry"
+                            },
+                            "operator": "eq",
+                            "rightOperand": "GB"
+                        },
+                        "action": "read"
+                    },
+                    {
+                        "target": {
+                            "type": [
+                                "Asset",
+                                "https://vocabulary.uncefact.org/Document"
+                            ]
+                        },
+                        "constraint": {
+                            "leftOperand": {
+                                "@id": "https://w3id.org/twin/odrl/propertyValue",
+                                "jsonPathSelector": ".documentTypeCode"
+                            },
+                            "operator": "eq",
+                            "rightOperand": "unece:DocumentCodeList#853"
+                        },
+                        "action": "read"
+                    }
+                ]
+            }
+        ],
+        "aggregationOfResources": [
+            "https://twin.example.org/data-resources/ffw-docs-2f246",
+            "https://twin.example.org/data-resources/exporter-consignments-817a9d"
+        ],
+        "providedBy": {
+            "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+            "type": "LegalPerson"
+        }
+    }
+}
