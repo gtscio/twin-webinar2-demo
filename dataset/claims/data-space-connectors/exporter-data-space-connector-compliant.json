@@ -14,7 +14,7 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/federated-catalogue/public-web/data-space-connector-exporter.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-CFQcXqkwD4t4VojFPuoUHixJI7uD6N+/PO4bZzHkjhM="
+      "digestSRI": "sha256-BUzg28GsTr8Com2w86hvHYJrX/b1wAuOsnRxM/Rqs0Q="
     }
   ]
 }

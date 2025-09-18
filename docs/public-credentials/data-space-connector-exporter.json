@@ -8,8 +8,8 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
-  "validFrom": "2025-09-18T06:51:39Z",
-  "validUntil": "2027-12-30T14:51:39Z",
+  "validFrom": "2025-09-18T06:56:51Z",
+  "validUntil": "2027-12-30T14:56:51Z",
   "credentialSubject": {
     "@context": [
       "https://w3id.org/gaia-x/development",
@@ -19,7 +19,7 @@
       "endpointURL": "http://localhost:11111/data-space-connector"
     },
     "id": "https://my-ds-connectors.example.org/ds-connector-exporter",
-    "identity": "",
+    "identity": "did:iota:123456",
     "maintainer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
     "offeredResource": {
       "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
@@ -54,6 +54,6 @@
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..-KV9K81qa0ZLRSj6IDgn8dog6vOioJ8nxHC_axQx1esmh_3Bwi9qyQVcHwIvIwFywIaT9Kr_M3vnPEfc0JEvBA"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..sdcWcbzgabHBKN9DBkhDqFopXFZ9EEVhvxf7v3cyR1iH2-PacyVoN4MPL3tuVOS1dbOU8U51PiDp4KMdCDLsAA"
   }
 }

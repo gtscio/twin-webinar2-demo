@@ -10,7 +10,7 @@
             "DataSpaceConnector",
             "DataExchangeComponent"
         ],
-        "identity": "",
+        "identity": "did:iota:123456",
         "defaultEndpoint": {
             "endpointURL": "http://localhost:11111/data-space-connector"
         },
