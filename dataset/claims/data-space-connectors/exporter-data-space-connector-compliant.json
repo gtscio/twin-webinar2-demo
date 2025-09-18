@@ -12,9 +12,9 @@
   "evidence": [
     {
       "type": "CompliantCredential",
-      "id": "https://gtscio.github.io/federated-catalogue/public-web/data-space-connector-exporter.json",
+      "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-exporter.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-BUzg28GsTr8Com2w86hvHYJrX/b1wAuOsnRxM/Rqs0Q="
+      "digestSRI": "sha256-bHo8nKO8ArTEHuUwlRm865m4v0jEqQLeFg89w/sEw1A="
     }
   ]
 }
