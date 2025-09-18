@@ -1,0 +1,38 @@
+{
+    "id": "https://gtscio.github.io/federated-catalogue/public-web/data-space-connector-exporter.json",
+    "credentialSubject": {
+        "@context": [
+            "https://w3id.org/gaia-x/development",
+            "https://schema.twindev.org/federated-catalogue/types.jsonld"
+        ],
+        "id": "https://my-ds-connectors.example.org/ds-connector-exporter",
+        "type": [
+            "DataSpaceConnector",
+            "DataExchangeComponent"
+        ],
+        "identity": "",
+        "defaultEndpoint": {
+            "endpointURL": "http://localhost:11111/data-space-connector"
+        },
+        "subscriptionActivityEndpoint": {
+            "endpointURL": "/subscriptions"
+        },
+        "pushActivityEndpoint": {
+            "endpointURL": "/notify"
+        },
+        "pullDataEndpoint": {
+            "endpointURL": "/data"
+        },
+        "offeredResource": {
+            "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
+                "type": "DataResource",
+                "name": "Consignments Resource"
+            },
+            "https://twin.example.org/data-resources/exporter-docs-817a9d": {
+                "type": "DataResource",
+                "name": "Documents Resource"
+            }
+        },
+        "maintainer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
+    }
+}

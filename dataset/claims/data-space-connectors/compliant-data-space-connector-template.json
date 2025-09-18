@@ -1,0 +1,17 @@
+{
+	"credentialSubject": {
+		"@context": [
+			"https://w3id.org/gaia-x/development",
+			"https://schema.twindev.org/federated-catalogue/types.jsonld"
+		],
+		"type": ["DataExchangeComponent", "DataSpaceConnector"]
+	},
+	"evidence": [
+		{
+			"type": "CompliantCredential",
+			"id": "",
+			"credentialType": "VerifiableCredential",
+			"digestSRI": ""
+		}
+	]
+}

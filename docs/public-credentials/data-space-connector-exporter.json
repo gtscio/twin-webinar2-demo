@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/federated-catalogue/public-web/data-space-connector-exporter.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+  "validFrom": "2025-09-18T06:51:39Z",
+  "validUntil": "2027-12-30T14:51:39Z",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "defaultEndpoint": {
+      "endpointURL": "http://localhost:11111/data-space-connector"
+    },
+    "id": "https://my-ds-connectors.example.org/ds-connector-exporter",
+    "identity": "",
+    "maintainer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
+    "offeredResource": {
+      "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
+        "name": "Consignments Resource",
+        "type": "DataResource"
+      },
+      "https://twin.example.org/data-resources/exporter-docs-817a9d": {
+        "name": "Documents Resource",
+        "type": "DataResource"
+      }
+    },
+    "pullDataEndpoint": {
+      "endpointURL": "/data"
+    },
+    "pushActivityEndpoint": {
+      "endpointURL": "/notify"
+    },
+    "subscriptionActivityEndpoint": {
+      "endpointURL": "/subscriptions"
+    },
+    "type": [
+      "DataSpaceConnector",
+      "DataExchangeComponent"
+    ]
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d#bcQWcv9Jw-tXoQSspSsPx_Hpl-oDQuTqmhq5QwfwXPs",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..-KV9K81qa0ZLRSj6IDgn8dog6vOioJ8nxHC_axQx1esmh_3Bwi9qyQVcHwIvIwFywIaT9Kr_M3vnPEfc0JEvBA"
+  }
+}
