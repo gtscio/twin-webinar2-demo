@@ -14,7 +14,7 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-giw.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-NvTnSjYjYeEjSfOaBRubnozTOlSPFssRYsJ/iIIg6GM="
+      "digestSRI": "sha256-9tXUYKOHs8oP44Qf85S7R4IYrB/uKP3aURgqGa2i3/k="
     }
   ]
 }

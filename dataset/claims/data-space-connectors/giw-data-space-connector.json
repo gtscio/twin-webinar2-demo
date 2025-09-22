@@ -24,7 +24,7 @@
             "endpointURL": "/data"
         },
         "offeredResource": {
-            "": {
+            "https://twin.example.org/data-resources/vet-cert-doc-6ce567": {
                 "type": "DataResource",
                 "name": "Veterinary Certificates"
             }

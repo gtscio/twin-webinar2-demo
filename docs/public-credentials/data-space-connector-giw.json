@@ -8,8 +8,8 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-  "validFrom": "2025-09-22T07:28:44Z",
-  "validUntil": "2028-01-03T15:28:44Z",
+  "validFrom": "2025-09-22T07:35:08Z",
+  "validUntil": "2028-01-03T15:35:08Z",
   "credentialSubject": {
     "@context": [
       "https://w3id.org/gaia-x/development",
@@ -22,7 +22,7 @@
     "identity": "did:iota:88888",
     "maintainer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
     "offeredResource": {
-      "": {
+      "https://twin.example.org/data-resources/vet-cert-doc-6ce567": {
         "name": "Veterinary Certificates",
         "type": "DataResource"
       }
@@ -50,6 +50,6 @@
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..UkLO76d3ZN1ivM7hNdqfkcDEVWhR4SGAKC1PfYnlDhUB6zwakwiarX17Ai8FELhMGwPSL3OUQG4ntmTPaMSUDg"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..R5RR8W1jOQwNGCiPPLgpqeLc5dmxoYCyTfHDF7ZyaPF6o1oOe-WOxc-pM-ToLZQwjtbwOwv7RD0E_jNxsxeVCg"
   }
 }
