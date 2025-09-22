@@ -1,0 +1,55 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-giw.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+  "validFrom": "2025-09-22T07:28:44Z",
+  "validUntil": "2028-01-03T15:28:44Z",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "defaultEndpoint": {
+      "endpointURL": "http://localhost:33333/data-space-connector"
+    },
+    "id": "https://my-ds-connectors.example.org/ds-connector-giw",
+    "identity": "did:iota:88888",
+    "maintainer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+    "offeredResource": {
+      "": {
+        "name": "Veterinary Certificates",
+        "type": "DataResource"
+      }
+    },
+    "pullDataEndpoint": {
+      "endpointURL": "/data"
+    },
+    "pushActivityEndpoint": {
+      "endpointURL": "/notify"
+    },
+    "subscriptionActivityEndpoint": {
+      "endpointURL": "/subscriptions"
+    },
+    "type": [
+      "DataSpaceConnector",
+      "DataExchangeComponent"
+    ]
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..UkLO76d3ZN1ivM7hNdqfkcDEVWhR4SGAKC1PfYnlDhUB6zwakwiarX17Ai8FELhMGwPSL3OUQG4ntmTPaMSUDg"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "type": [
+      "DataExchangeComponent",
+      "DataSpaceConnector"
+    ]
+  },
+  "evidence": [
+    {
+      "type": "CompliantCredential",
+      "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-ffw.json",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": "sha256-zYTGJeoC+6n3snpK2BNw3M6TDbyrEBPxXgN1pdM47d8="
+    }
+  ]
+}

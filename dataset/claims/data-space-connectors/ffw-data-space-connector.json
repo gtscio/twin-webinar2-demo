@@ -1,0 +1,38 @@
+{
+    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-ffw.json",
+    "credentialSubject": {
+        "@context": [
+            "https://w3id.org/gaia-x/development",
+            "https://schema.twindev.org/federated-catalogue/types.jsonld"
+        ],
+        "id": "https://my-ds-connectors.example.org/ds-connector-ffw",
+        "type": [
+            "DataSpaceConnector",
+            "DataExchangeComponent"
+        ],
+        "identity": "did:iota:testnet:0x10acbf6ed80e914c074aa46fbc4b2ce94d74c860958d930f83df13f1027533fe",
+        "defaultEndpoint": {
+            "endpointURL": "http://localhost:22222/data-space-connector"
+        },
+        "subscriptionActivityEndpoint": {
+            "endpointURL": "/subscriptions"
+        },
+        "pushActivityEndpoint": {
+            "endpointURL": "/notify"
+        },
+        "pullDataEndpoint": {
+            "endpointURL": "/data"
+        },
+        "offeredResource": {
+            "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
+                "type": "DataResource",
+                "name": "Consignments Resource"
+            },
+            "https://twin.example.org/data-resources/ffw-docs-2f246": {
+                "type": "DataResource",
+                "name": "Documents Resource"
+            }
+        },
+        "maintainer": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246"
+    }
+}
