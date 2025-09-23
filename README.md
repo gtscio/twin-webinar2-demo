@@ -14,7 +14,7 @@ Materials of the 3-way document sharing educational case.
 
 The dataset contains the following assets:
 
-* [identities](./dataset/identities). The identities (DID) of the actors involved (GIW, Exporter, FFW, UK FSA), together with the Notary service (that attests legal entities) and the Clearing House (that issues Compliance Credentials).
+* [identities](./dataset/identities). The identities (DID) of the actors involved (GIW, Exporter, FFW, UK FSA), together with the Notary service (that attests legal entities) and the Clearing House (that issues Compliance Credentials). This folder also contains the keys associated with the Verification Methods being published through each DID Document (registered on the IOTA Ledger).
 * [claims](./dataset/claims). The claims associated with the different entities involved.
 * [credentials](./dataset/credentials/). The credentials that are generated from the claims.
 * [templates](./dataset/templates). Templates needed to generate credentials.
@@ -72,3 +72,43 @@ curl --location 'http://localhost:3020/federated-catalogue/participant-credentia
 where data will contain the JWT Compliance Credential, for instance the one you can find in this [file](./dataset/credentials/compliance/ffw-compliant-participant.json).
 
 Similarly it can be done with other types of catalogue resources.
+
+Later you can query which Participants are registered in the Federated Catalogue, for instance:
+
+```sh
+curl --location 'http://localhost:3020/federated-catalogue/participants'
+```
+
+```json
+{
+    "@context": [
+        "https://schema.org",
+        "https://w3id.org/gaia-x/development",
+        "https://schema.twindev.org/federated-catalogue/"
+    ],
+    "type": "ItemList",
+    "itemListElement": [
+        {
+            "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+            "type": "LegalPerson",
+            "dateCreated": "2025-09-15T11:27:40.363Z",
+            "legalAddress": {
+                "type": "Address",
+                "countryCode": "GB"
+            },
+            "legalName": "Freight Forwarder, Ltd",
+            "registrationNumber": {
+                "type": "EORI",
+                "eori": "GB987654321000"
+            },
+            "evidence": [
+                "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-legal-entity.json",
+                "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json"
+            ],
+            "issuer": "did:iota:testnet:0xcfff2995cb976c5706c8a0f908c4c9819d575bf85797d1294657dd1a0775899d",
+            "validFrom": "2025-09-15T11:14:33Z",
+            "validUntil": "2027-12-27T19:14:33Z"
+        }
+    ]
+}
+```
