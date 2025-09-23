@@ -1,4 +1,4 @@
-# TWIN Webinar 2
+# TWIN Webinar 2 (September 2025)
 
 Materials of the 3-way document sharing educational case. 
 *Note: If you want to experiment with these materials you can try to fork this repository with your own GH Pages* 
