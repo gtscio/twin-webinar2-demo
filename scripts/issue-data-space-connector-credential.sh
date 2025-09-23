@@ -8,5 +8,5 @@ docker run -i -v "$(pwd)/../dataset:/ext" --rm onboardingcli/onboardingcli vc cr
 --claims-file "/ext/claims/data-space-connectors/$2-data-space-connector.json" --template-file /ext/templates/template.json \
 --trusted-issuer-file "/ext/identities/$1/$1.json" --vc-version 2 \
 --subject-did $3 \
---issuers-dir /ext/identities --templates-dir /ext/templates --vc-dir /ext/credentials/evidences \
+--issuers-dir /ext/identities --templates-dir /ext/templates --vc-dir /ext/credentials/evidences/data-space-connectors \
 --valid-for 20000h
