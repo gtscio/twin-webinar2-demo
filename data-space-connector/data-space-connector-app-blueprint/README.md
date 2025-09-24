@@ -1,21 +1,12 @@
-# Data Space Connector Test App
+# Data Space Connector Blueprint App for the Webinar
 
-Data Space Connector test app.
+Data Space Connector blueprint app.
 
-## Installation
+## How to run
 
-```shell
-npm install @twin.org/data-space-connector-test-app
+```sh
+npm install
+npm run dist
 ```
 
-## Examples
-
-Usage of the APIs is shown in the examples [docs/examples.md](docs/examples.md)
-
-## Reference
-
-Detailed reference documentation for the API can be found in [docs/reference/index.md](docs/reference/index.md)
-
-## Changelog
-
-The changes between each version can be found in [docs/changelog.md](docs/changelog.md)
+Then you need to reference this package from 

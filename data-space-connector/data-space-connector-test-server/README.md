@@ -1,12 +1,12 @@
 # Data Space Connector test REST Server for Webinar Sept 2025
 
-A REST server implementation support the Data Space Connector routes.
+A REST server implementation support the Data Space Connector example application.
 
-## Open API
+## Deploying the DS Connector App
 
-The Open API Spec is [spec.json](./docs/open-api/spec.json)
+Go to the [Data Space Connector App folder](../data-space-connector-app-blueprint/) and build the package.
 
-## Building and running the application
+## Building and running the test server
 
 To install the dependencies, perform a full build and start the server.
 
@@ -23,11 +23,3 @@ Once you have performed a full build you can run the server in development mode,
 ```shell
 npm run dev
 ```
-
-## Configuration
-
-There are various options you can set through configuration, these can be found in [docs/configuration.md](docs/configuration.md).
-
-## Changelog
-
-The changes between each version can be found in [docs/changelog.md](docs/changelog.md).

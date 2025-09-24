@@ -1,6 +1,6 @@
 {
-	"name": "@twin.org/test-data-space-connector-rest-server",
-	"version": "0.0.1-next.4",
+	"name": "@twindev.org/test-data-space-connector-rest-server",
+	"version": "0.0.1",
 	"description": "Test Data Space Connector REST Service",
 	"repository": {
 		"type": "git",
@@ -32,7 +32,8 @@
 		"@twin.org/engine-models": "next",
 		"@twin.org/entity": "next",
 		"@twin.org/nameof": "next",
-		"@twin.org/node-core": "next"
+		"@twin.org/node-core": "next",
+		"@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint"
 	},
 	"devDependencies": {
 		"@twin.org/entity-storage-connector-memory": "next",

@@ -1,11 +1,11 @@
 {
-	"name": "@twin.org/data-space-connector-webinar-app",
-	"version": "0.0.1-next.4",
+	"name": "@twindev.org/data-space-connector-webinar-app",
+	"version": "0.0.1",
 	"description": "Data Space Connector App Webinar",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/gtscio/twin-webinar2-demo.git",
-		"directory": "packages/data-space-connector-webinar-app"
+		"directory": "data-space-connector/data-space-connector-webinar-app"
 	},
 	"author": "jose.cantera@iota.org",
 	"license": "Apache-2.0",
@@ -13,6 +13,7 @@
 	"engines": {
 		"node": ">=20.0.0"
 	},
+	"private": true,
 	"scripts": {
 		"clean": "rimraf dist coverage docs/reference src/schemas",
 		"build:compile": "tsc",
@@ -36,7 +37,7 @@
 		"@twin.org/core": "next",
 		"@twin.org/data-core": "next",
 		"@twin.org/data-json-ld": "next",
-		"@twin.org/data-space-connector-models": "0.0.1-next.4",
+		"@twin.org/data-space-connector-models": "next",
 		"@twin.org/engine-models": "next",
 		"@twin.org/logging-models": "next",
 		"@twin.org/nameof": "next",
