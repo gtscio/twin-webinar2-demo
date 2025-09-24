@@ -24,7 +24,7 @@ The instance config.
 
 #### options
 
-[`ITestAppConstructorOptions`](../interfaces/ITestAppConstructorOptions.md)
+[`IWebinarAppConstructorOptions`](../interfaces/IWebinarAppConstructorOptions.md)
 
 The instance config options.
 

@@ -1,4 +1,4 @@
-# @twin.org/data-space-connector-webinar-app
+# @twindev.org/data-space-connector-webinar-app
 
 ## Classes
 
@@ -6,7 +6,7 @@
 
 ## Interfaces
 
-- [ITestAppConstructorOptions](interfaces/ITestAppConstructorOptions.md)
+- [IWebinarAppConstructorOptions](interfaces/IWebinarAppConstructorOptions.md)
 
 ## Variables
 

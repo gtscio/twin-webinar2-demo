@@ -29,7 +29,7 @@ import type {
 import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
 import type { IActivity } from "@twin.org/standards-w3c-activity-streams";
-import type { ITestAppConstructorOptions } from "./IWebinarAppConstructorOptions";
+import type { IWebinarAppConstructorOptions } from "./IWebinarAppConstructorOptions";
 
 /**
  * Test App Activity Handler.
@@ -73,7 +73,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 	 * Constructor options.
 	 * @param options The constructor options.
 	 */
-	constructor(options: ITestAppConstructorOptions) {
+	constructor(options: IWebinarAppConstructorOptions) {
 		DataTypeHandlerFactory.register("https://vocabulary.uncefact.org/Consignment", () => ({
 			context: "https://vocabulary.uncefact.org/",
 			type: "Consignment",

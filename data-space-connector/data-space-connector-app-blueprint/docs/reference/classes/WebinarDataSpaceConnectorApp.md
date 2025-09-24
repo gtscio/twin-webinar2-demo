@@ -18,7 +18,7 @@ Constructor options.
 
 ##### options
 
-[`ITestAppConstructorOptions`](../interfaces/ITestAppConstructorOptions.md)
+[`IWebinarAppConstructorOptions`](../interfaces/IWebinarAppConstructorOptions.md)
 
 The constructor options.
 

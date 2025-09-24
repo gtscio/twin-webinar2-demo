@@ -6,7 +6,7 @@ import type { IDataSpaceConnectorAppConstructorOptions } from "@twin.org/data-sp
 /**
  * Test App Constructor options.
  */
-export interface ITestAppConstructorOptions extends IDataSpaceConnectorAppConstructorOptions {
+export interface IWebinarAppConstructorOptions extends IDataSpaceConnectorAppConstructorOptions {
   /**
    * The Auditable Item Graph Component Type.
    */

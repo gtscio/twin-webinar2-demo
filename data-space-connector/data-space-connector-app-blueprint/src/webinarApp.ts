@@ -6,7 +6,7 @@ import { ComponentFactory, StringHelper } from "@twin.org/core";
 import type { IDataSpaceConnectorApp } from "@twin.org/data-space-connector-models";
 import type { IEngineCore, IEngineCoreContext } from "@twin.org/engine-models";
 import { nameof } from "@twin.org/nameof";
-import type { ITestAppConstructorOptions } from "./IWebinarAppConstructorOptions";
+import type { IWebinarAppConstructorOptions } from "./IWebinarAppConstructorOptions";
 import { WebinarAppDescriptor } from "./webinarAppDescriptor";
 import { WebinarDataSpaceConnectorApp } from "./webinarDataSpaceConnectorApp";
 
@@ -22,7 +22,7 @@ import { WebinarDataSpaceConnectorApp } from "./webinarDataSpaceConnectorApp";
 export function appInitialiser(
 	core: IEngineCore,
 	context: IEngineCoreContext,
-	instanceConfig: { options: ITestAppConstructorOptions },
+	instanceConfig: { options: IWebinarAppConstructorOptions },
 	overrideInstanceType: string
 ): string {
 	const componentName = `${StringHelper.kebabCase(nameof<IDataSpaceConnectorApp>(), true)}-${WebinarAppDescriptor.id}`;
