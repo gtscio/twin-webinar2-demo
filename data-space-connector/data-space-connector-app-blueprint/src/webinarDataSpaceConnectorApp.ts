@@ -136,12 +136,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 
 		const userIdentity = (activity.actor as { id: string }).id;
 
-		const validationFailures: IValidationFailure[] = [];
 		try {
-			// An object needs to be provided and has to be validated
-			await JsonLdHelper.validate(activity.object, validationFailures, { failOnMissingType: true });
-			Validation.asValidationError(this.CLASS_NAME, nameof(activity.object), validationFailures);
-
 			await this._loggingService?.log({
 				level: "info",
 				source: this.CLASS_NAME,
@@ -167,16 +162,6 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 						nameof(activity.target),
 						activity.target
 					);
-					const validationFailuresTarget: IValidationFailure[] = [];
-					await JsonLdHelper.validate(activity.target, validationFailuresTarget, {
-						failOnMissingType: true
-					});
-					Validation.asValidationError(
-						this.CLASS_NAME,
-						nameof(activity.target),
-						validationFailuresTarget
-					);
-
 					await this._loggingService?.log({
 						level: "info",
 						source: this.CLASS_NAME,
