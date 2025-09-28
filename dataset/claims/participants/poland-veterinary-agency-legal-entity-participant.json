@@ -4,9 +4,9 @@
 		"@context": [
 			"https://w3id.org/gaia-x/development",
 			{
-				"isicV4": "https://schema.org/isicV4",
+				"isicV4": "http://schema.org/isicV4",
 				"description_pl": {
-					"@id": "https://schema.org/description",
+					"@id": "http://schema.org/description",
 					"@language": "pl"
 				}
 			}

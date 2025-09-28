@@ -1,77 +1,138 @@
 /**
- * Calculates Compliance Credentials for Data Resources, Service Offerings and Data Space Connectors
+ * Calculates Compliance Credentials for Participants, Data Resources, Service Offerings and Data Space Connectors
  */
 
-import { exec } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 
-const args = process.argv.slice(2); // skip "node" and script name
-
-if (args.length < 4) {
-    console.error("Error: You must provide at least four arguments.");
+function usage() {
+    console.error("Error: You must provide at least 2 arguments.");
     console.error("Usage: node app.js <entry type> <participant name> <entry name> <entry id>");
+    console.error("Entry type can be: 'participant', 'data-resource', 'service-offering' or 'data-space-connector'");
     process.exit(1); // exit with failure code
 }
+
+const args = process.argv.slice(2); // skip "node" and script name
 
 // Extract the four arguments
 const [entryType, participantName, entryName, entryId] = args;
 
-const commandLine = `./issue-${entryType}-credential.sh ${participantName} ${entryName} ${entryId}`;
-exec(commandLine, (error, stdout, stderr) => {
-    if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
-    }
+if (!entryType && !participantName) {
+    usage();
+}
 
-    const newPath = renameFile(stderr, participantName + "-" + entryName + "-" + entryType + ".json");
+if (entryType !== "participant" && args.length < 4) {
+    usage();
+}
 
-    console.log("Credential created");
+const credentialTypes = [entryType];
+if (entryType === "participant") {
+    credentialTypes.push("participant-terms-conditions");
+}
 
-    const identityFile = path.resolve(path.join("../dataset/identities", participantName, participantName + ".json"));
-    let identityData = readJson(identityFile);
-    console.log(identityData.did, identityData.privateKeyJwk.kid);
+const claimsPath = `../dataset/claims/${entryType}s`;
 
-    const signingCommand = `node ./signCredentialJsonWebSignature "$(cat ${newPath.toString()})" "${identityData.did}#${
-        identityData.privateKeyJwk.kid
-    }" "$(cat ${identityFile.toString()})"`;
-    exec(signingCommand, (error, stdout, stderr) => {
-        const credential = stdout;
-        const jsonContent = JSON.parse(stdout);
-        const id = jsonContent.id;
-        const fileName = id.split("/").pop();
+const claimsTemplateFile = path.resolve(path.join(claimsPath, `compliant-${entryType}-template.json`));
+const claimsTemplate = readJson(claimsTemplateFile);
 
-        console.log("Writing file", fileName);
-        const credentialPath = path.resolve(path.join("../docs/public-credentials", fileName));
-        writeFileSync(credentialPath, credential, "utf-8");
+issueComplianceCredential();
+
+// The meaty part is here
+function issueComplianceCredential() {
+    let evidenceIndex = 0;
+    for (const credentialType of credentialTypes) {
+        const commandLine = `./issue-${credentialType}-credential.sh ${participantName} ${entryName} ${entryId}`;
+        const result = spawnSync("sh", ["-c", commandLine]);
+        const stderr = result.stderr.toString();
+        if (result.error) {
+            console.error(`Error: ${result.error.message}`);
+            console.error(result.stdout);
+            process.exit(-1);
+        }
+
+        const newPath = renameFile(
+            stderr,
+            participantName + "-" + (entryName ? "-" + entryName : "") + credentialType + ".json"
+        );
+        console.log("Credential created", newPath);
+
+        const identityFile = path.resolve(
+            path.join("../dataset/identities", participantName, participantName + ".json")
+        );
+        let identityData = readJson(identityFile);
+        console.log(identityData.did, identityData.privateKeyJwk.kid);
+
+        const { signedCredentialPath, credentialId } = createSignedCredential(
+            newPath.toString(),
+            identityData,
+            identityFile
+        );
 
         // Now it is needed to calculate the digest
-        const digestCommand = `node ./calculateDigest.js "$(cat ${credentialPath})"`;
-        exec(digestCommand, (error, stdout, stderr) => {
-            const digest = stdout.trim();
+        const digestCommand = `node ./calculateDigest.js "$(cat ${signedCredentialPath})"`;
+        const { output, error } = spawnSync("sh", ["-c", digestCommand]);
+        if (error) {
+            console.error("Error while calculating digest", error);
+            process.exit(-1);
+        }
+        const digest = output[1].toString().trim();
 
-            const claimsPath = `../dataset/claims/${entryType}s`;
-            const claimsTemplateFile = path.resolve(path.join(claimsPath, `compliant-${entryType}-template.json`));
-            const claimsTemplate = readJson(claimsTemplateFile);
+        claimsTemplate.evidence[evidenceIndex].id = credentialId;
+        claimsTemplate.evidence[evidenceIndex].digestSRI = digest;
 
-            claimsTemplate.evidence[0].id = id;
-            claimsTemplate.evidence[0].digestSRI = digest;
+        evidenceIndex++;
+    }
 
-            writeFileSync(
-                path.resolve(path.join(claimsPath, entryName + "-" + `${entryType}-compliant.json`)),
-                JSON.stringify(claimsTemplate, null, 2)
-            );
+    let finalClaimsPath = claimsPath;
+    if (entryType === "participant") {
+        finalClaimsPath += path.sep + "compliance"
+    }
 
-            // And now calling the issuance of a compliance credential
-            const complianceCredentialCmd = `./issue-compliance-credential-${entryType}.sh ${entryName} ${entryId}`;
-            exec(complianceCredentialCmd, (error, stdout, stderr) => {
-                renameFile(stderr, entryName + "-" + `compliant-${entryType}.json`);
-            });
-        });
-    });
-});
+    console.log("****", finalClaimsPath)
+
+    // Writing claims
+    writeFileSync(
+        path.resolve(path.join(finalClaimsPath, (entryName ? entryName : participantName) + `-${entryType}-compliant.json`)),
+        JSON.stringify(claimsTemplate, null, 2)
+    );
+
+    // And now calling the issuance of a compliance credential
+    const complianceCredentialCmd = `./issue-compliance-credential-${entryType}.sh ${
+        entryType === "participant" ? participantName : entryName
+    } ${entryId}`;
+    const { stderr, error } = spawnSync("sh", ["-c", complianceCredentialCmd]);
+    if (error) {
+        console.error("Error while creating compliance credential", error);
+        process.exit(-1);
+    }
+    renameFile(stderr.toString(), (entryName ? entryName : participantName) + `-compliant-${entryType}.json`);
+}
+
+function createSignedCredential(credentialPath, identityData, identityFile) {
+    const signingCommand = `node ./signCredentialJsonWebSignature.js "$(cat ${credentialPath})" "${identityData.did}#${
+        identityData.privateKeyJwk.kid
+    }" "$(cat ${identityFile.toString()})"`;
+    const { error, output } = spawnSync("sh", ["-c", signingCommand]);
+    if (error) {
+        console.error("Error while signing credential: ", error);
+        process.exit(-1);
+    }
+
+    const credential = output[1].toString();
+    const jsonContent = JSON.parse(credential);
+    const id = jsonContent.id;
+    const fileName = id.split("/").pop();
+
+    console.log("Writing file", fileName);
+    const signedCredentialPath = path.resolve(path.join("../docs/public-credentials", fileName));
+    writeFileSync(signedCredentialPath, credential, "utf-8");
+
+    return { signedCredentialPath, credentialId: id };
+}
 
 function renameFile(stderr, newFileName) {
+    console.log(newFileName);
     let result = stderr.trim();
     result = result.substring(0, result.length - 1);
 

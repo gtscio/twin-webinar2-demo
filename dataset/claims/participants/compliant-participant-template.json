@@ -1,0 +1,20 @@
+{
+    "credentialSubject": {
+        "@context": "https://w3id.org/gaia-x/development",
+        "type": "LegalEntity"
+    },
+    "evidence": [
+        {
+            "type": "CompliantCredential",
+            "id": "",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": ""
+        },
+        {
+            "type": "CompliantCredential",
+            "id": "",
+            "credentialType": "VerifiableCredential",
+            "digestSRI": ""
+        }
+    ]
+}
