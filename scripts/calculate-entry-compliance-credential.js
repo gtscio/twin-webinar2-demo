@@ -26,9 +26,10 @@ if (entryType !== "participant" && args.length < 4) {
     usage();
 }
 
-const credentialTypes = ["legal-entity"];
+let credentialTypes = [entryType];
+
 if (entryType === "participant") {
-    credentialTypes.push("terms-and-conditions");
+    credentialTypes = ["legal-entity", "terms-and-conditions"];
 }
 
 const claimsPath = `../dataset/claims/${entryType}s`;
