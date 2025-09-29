@@ -50,12 +50,16 @@ node ./calculate-entry-compliance-credential  <entry type> <participant name> <e
 For example if we want to generate a Compliance Credential for the GIW Data Resource that includes Veterinary Certificates:
 
 ```sh
-node ./ ./calculate-entry-compliance-credential "data-resource" "poland-veterinary-agency" "giw-vet-cert" "https://my-ds-connectors.example.org/giw-ds-connector"
+node ./calculate-entry-compliance-credential "data-resource" "poland-veterinary-agency" "giw-vet-cert" "https://twin.example.org/data-resources/vet-cert-doc-6ce567"
 ```
 
 Similarly it can be done with other types of entries.
 
-For Participants the process is manual and implies calling individually scripts until finally building and publishing. 
+For Participants the script has to be invoked as follows:
+
+```sh
+node ./calculate-entry-compliance-credential "participant" "polandExporter" 
+```
 
 ## How to use these materials
 
