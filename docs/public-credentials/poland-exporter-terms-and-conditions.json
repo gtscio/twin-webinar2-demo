@@ -3,13 +3,13 @@
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
-  "id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-exporter-terms-and-conditions.json",
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-exporter-terms-and-conditions.json",
   "type": [
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
-  "validFrom": "2025-09-29T07:04:17Z",
-  "validUntil": "2028-01-10T15:04:17Z",
+  "validFrom": "2025-09-29T07:12:46Z",
+  "validUntil": "2028-01-10T15:12:46Z",
   "credentialSubject": {
     "@context": "https://w3id.org/gaia-x/development",
     "digestSRI": "sha256-0aXialGx6tzl9LQVIoVSkkDv6LCdYvJIcy4e5l7vNjU=",
@@ -25,6 +25,6 @@
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..GEv06FYIO-uBFSHYXOv7HJ_BKr0sNjS84YgLK4DQFWMng9aqXa01UTq8Fpz0nupPKBny5CbGVRy0opYJtf0NCA"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0TgMry_T_tR1c6_SGa4yiMlErHU1vO4-lqTgqowPPaqkxSjQUuD_gAOeIglPxuTK5o31wNQNDZTYqm1gQNOQDw"
   }
 }

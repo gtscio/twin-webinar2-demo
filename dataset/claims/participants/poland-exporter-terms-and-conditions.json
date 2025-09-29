@@ -1,5 +1,5 @@
 {
-	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-exporter-terms-and-conditions.json",
+	"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-exporter-terms-and-conditions.json",
 	"credentialSubject": {
 		"@context": "https://w3id.org/gaia-x/development",
 		"type": "TermsAndConditions",
