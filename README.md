@@ -58,7 +58,7 @@ Similarly it can be done with other types of entries.
 For Participants the script has to be invoked as follows:
 
 ```sh
-node ./calculate-entry-compliance-credential "participant" "polandExporter" 
+node ./calculate-entry-compliance-credential "participant" "poland-exporter" 
 ```
 
 ## How to use these materials
