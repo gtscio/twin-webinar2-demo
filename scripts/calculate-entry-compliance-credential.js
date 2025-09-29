@@ -53,7 +53,7 @@ function issueComplianceCredential() {
 
         const newPath = renameFile(
             stderr,
-            participantName + "-" + (entryName ? "-" + entryName : "") + credentialType + ".json"
+            participantName + "-" + (entryName ? entryName + "-" : "") + credentialType + ".json"
         );
         console.log("Credential created", newPath);
 
@@ -61,7 +61,7 @@ function issueComplianceCredential() {
             path.join("../dataset/identities", participantName, participantName + ".json")
         );
         let identityData = readJson(identityFile);
-        console.log(identityData.did, identityData.privateKeyJwk.kid);
+        console.log("identity data: ", identityData.did, identityData.privateKeyJwk.kid);
 
         const { signedCredentialPath, credentialId } = createSignedCredential(
             newPath.toString(),
@@ -86,16 +86,15 @@ function issueComplianceCredential() {
 
     let finalClaimsPath = claimsPath;
     if (entryType === "participant") {
-        finalClaimsPath += path.sep + "compliance"
+        finalClaimsPath += path.sep + "compliance";
     }
 
-    console.log("****", finalClaimsPath)
-
     // Writing claims
-    writeFileSync(
-        path.resolve(path.join(finalClaimsPath, (entryName ? entryName : participantName) + `-${entryType}-compliant.json`)),
-        JSON.stringify(claimsTemplate, null, 2)
+    const compliantClaimsFilePath = path.resolve(
+        path.join(finalClaimsPath, (entryName ? entryName : participantName) + `-${entryType}-compliant.json`)
     );
+    writeFileSync(compliantClaimsFilePath, JSON.stringify(claimsTemplate, null, 2));
+    console.log("Compliant claims file written", compliantClaimsFilePath);
 
     // And now calling the issuance of a compliance credential
     const complianceCredentialCmd = `./issue-compliance-credential-${entryType}.sh ${
@@ -106,7 +105,9 @@ function issueComplianceCredential() {
         console.error("Error while creating compliance credential", error);
         process.exit(-1);
     }
-    renameFile(stderr.toString(), (entryName ? entryName : participantName) + `-compliant-${entryType}.json`);
+    const finalComplianceCredentialPath = (entryName ? entryName : participantName) + `-compliant-${entryType}.json`;
+    renameFile(stderr.toString(), finalComplianceCredentialPath);
+    console.log("Compliance credential created successfully: ", finalComplianceCredentialPath);
 }
 
 function createSignedCredential(credentialPath, identityData, identityFile) {
@@ -124,15 +125,14 @@ function createSignedCredential(credentialPath, identityData, identityFile) {
     const id = jsonContent.id;
     const fileName = id.split("/").pop();
 
-    console.log("Writing file", fileName);
     const signedCredentialPath = path.resolve(path.join("../docs/public-credentials", fileName));
     writeFileSync(signedCredentialPath, credential, "utf-8");
+    console.log("File written", signedCredentialPath);
 
     return { signedCredentialPath, credentialId: id };
 }
 
 function renameFile(stderr, newFileName) {
-    console.log(newFileName);
     let result = stderr.trim();
     result = result.substring(0, result.length - 1);
 
@@ -142,10 +142,7 @@ function renameFile(stderr, newFileName) {
     const parts = fullPath.split("/");
     const file = parts.pop();
 
-    console.log(parts);
-
     const base = path.join("../dataset", parts.slice(2).join(path.sep));
-    console.log(base);
 
     let filePath = path.resolve(path.join(base, file));
     // Now we need to rename the file

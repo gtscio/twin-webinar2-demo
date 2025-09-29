@@ -1,79 +1,80 @@
 {
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+  "validFrom": "2025-09-29T06:36:17Z",
+  "validUntil": "2028-01-10T14:36:17Z",
+  "credentialSubject": {
     "@context": [
-        "https://www.w3.org/ns/credentials/v2",
-        "https://w3id.org/security/suites/jws-2020/v1"
+      "https://w3id.org/gaia-x/development",
+      {
+        "conformsTo": "http://purl.org/dc/terms/conformsTo"
+      }
     ],
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
-    "type": [
-        "VerifiableCredential"
-    ],
-    "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-    "validFrom": "2025-09-16T13:48:28Z",
-    "validUntil": "2027-12-28T21:48:28Z",
-    "credentialSubject": {
-        "@context": [
-            "https://w3id.org/gaia-x/development",
-            {
-                "conformsTo": "http://purl.org/dc/terms/conformsTo"
-            }
-        ],
-        "conformsTo": {
-            "jsonSchema": {
-                "properties": {
-                    "documentTypeCode": {
-                        "const": "unece:DocumentCodeList#853",
-                        "type": "string"
-                    },
-                    "issuerParty": {
-                        "const": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-                        "type": "string"
-                    },
-                    "type": {
-                        "const": "Document",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "type": "JsonSchema"
+    "conformsTo": {
+      "@context": "https://www.w3.org/ns/credentials/v2",
+      "jsonSchema": {
+        "properties": {
+          "documentTypeCode": {
+            "const": "unece:DocumentCodeList#853",
+            "type": "string"
+          },
+          "issuerParty": {
+            "const": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+            "type": "string"
+          },
+          "type": {
+            "const": "Document",
+            "type": "string"
+          }
         },
-        "copyrightOwnedBy": {
-            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "type": "LegalPerson"
-        },
-        "exposedThrough": "https://my-ds-connectors.example.org/giw-ds-connector",
-        "id": "https://twin.example.org/data-resources/vet-cert-doc-6ce567",
-        "license": "http://licenses.example.org/phyto-doc",
-        "name": "Veterinary Certificate Documents Data Resource",
-        "producedBy": {
-            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "type": "LegalPerson"
-        },
-        "resourcePolicy": {
-            "@context": [
-                "http://www.w3.org/ns/odrl.jsonld"
-            ],
-            "@type": "Offer",
-            "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "permission": [
-                {
-                    "action": "read",
-                    "target": "https://twin.example.org/data-resources/vet-doc-6ce567"
-                }
-            ],
-            "uid": "http://example.com/policy:1010"
-        },
-        "type": "DataResource"
+        "type": "object"
+      },
+      "type": "JsonSchema"
     },
-    "proof": {
-        "type": "JsonWebSignature2020",
-        "verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
-        "proofPurpose": "assertionMethod",
-        "created": "2025-03-11T15:48:28.943+01:00",
-        "@context": [
-            "https://www.w3.org/ns/credentials/v2",
-            "https://w3id.org/security/suites/jws-2020/v1"
-        ],
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Cg2OfAP3OB0Uf2MGmqK2OrQeoPA9e2K_QzO4--V-uwkJ1dpbsghWHoxbvG3dplDQMFS4Uggo1KLIXX4wwrVaCg"
-    }
+    "copyrightOwnedBy": {
+      "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "type": "LegalPerson"
+    },
+    "exposedThrough": "https://my-ds-connectors.example.org/giw-ds-connector",
+    "id": "https://twin.example.org/data-resources/vet-cert-doc-6ce567",
+    "license": "http://licenses.example.org/phyto-doc",
+    "name": "Veterinary Certificate Documents Data Resource",
+    "producedBy": {
+      "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "type": "LegalPerson"
+    },
+    "resourcePolicy": {
+      "@context": [
+        "http://www.w3.org/ns/odrl.jsonld"
+      ],
+      "@type": "Offer",
+      "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "permission": [
+        {
+          "action": "read",
+          "target": "https://twin.example.org/data-resources/vet-doc-6ce567"
+        }
+      ],
+      "uid": "http://example.com/policy-data-resource-giw:1010"
+    },
+    "type": "DataResource"
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..07CC0uZJowUqTr1Z9ww_fpq6EosF13xABJi9qSHwgUhERV-YQAgw_mVnCs94g8NvbxUB4WhmIIKQ-P77MIEKCA"
+  }
 }
