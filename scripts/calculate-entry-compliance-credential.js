@@ -26,9 +26,9 @@ if (entryType !== "participant" && args.length < 4) {
     usage();
 }
 
-const credentialTypes = [entryType];
+const credentialTypes = ["legal-entity"];
 if (entryType === "participant") {
-    credentialTypes.push("participant-terms-conditions");
+    credentialTypes.push("terms-and-conditions");
 }
 
 const claimsPath = `../dataset/claims/${entryType}s`;
@@ -58,7 +58,7 @@ function issueComplianceCredential() {
         console.log("Credential created", newPath);
 
         let identityFile;
-        if (credentialType !== "participant") {
+        if (credentialType !== "legal-entity") {
             identityFile = path.resolve(
                 path.join("../dataset/identities", participantName, participantName + ".json")
             );
