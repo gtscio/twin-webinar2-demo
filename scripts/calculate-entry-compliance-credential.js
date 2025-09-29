@@ -57,10 +57,17 @@ function issueComplianceCredential() {
         );
         console.log("Credential created", newPath);
 
-        const identityFile = path.resolve(
-            path.join("../dataset/identities", participantName, participantName + ".json")
-        );
-        let identityData = readJson(identityFile);
+        let identityFile;
+        if (credentialType !== "participant") {
+            identityFile = path.resolve(
+                path.join("../dataset/identities", participantName, participantName + ".json")
+            );
+        } else {
+              identityFile = path.resolve(
+                path.join("../dataset/identities", "notary", "notary" + ".json")
+            );
+        }
+        const identityData = readJson(identityFile);
         console.log("identity data: ", identityData.did, identityData.privateKeyJwk.kid);
 
         const { signedCredentialPath, credentialId } = createSignedCredential(

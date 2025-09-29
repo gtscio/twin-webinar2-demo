@@ -8,13 +8,13 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-exporter-legal-entity.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-7oIZqmcW6bepGPgalVGtOcH2JZs3p+A3lXwj0eDpjLs="
+      "digestSRI": "sha256-H1MH/LvKw9Q53D4pdgvEvrk9drQLsK8wv3aR1GeKfMk="
     },
     {
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/poland-exporter-terms-and-conditions.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-rZCnyFMzbGws1JqCK7+0jGfkRbX9SORhWTJX6o0AaU0="
+      "digestSRI": "sha256-oTs02H8p0b8tfFiqub2i+JAW4O6QD14qWM24262B8j4="
     }
   ]
 }
