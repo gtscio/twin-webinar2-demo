@@ -1,44 +1,44 @@
 {
-	"@context": [
-	  "https://www.w3.org/ns/credentials/v2",
-	  "https://w3id.org/security/suites/jws-2020/v1"
-	],
-	"id": "https://gtscio.github.io/twin-webinar2-demo/docs/public-credentials/ffw-legal-entity.json",
-	"type": [
-	  "VerifiableCredential"
-	],
-	"issuer": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
-	"validFrom": "2025-09-15T11:04:56Z",
-	"validUntil": "2027-12-27T19:04:56Z",
-	"credentialSubject": {
-	  "@context": [
-		"https://w3id.org/gaia-x/development",
-		{
-		  "isicV4": "https://schema.org/isicV4"
-		}
-	  ],
-	  "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
-	  "isicV4": "5224",
-	  "legalAddress": {
-		"countryCode": "GB",
-		"type": "Address"
-	  },
-	  "legalName": "Freight Forwarder, Ltd",
-	  "registrationNumber": {
-		"eori": "GB987654321000",
-		"type": "EORI"
-	  },
-	  "type": "LegalPerson"
-	},
-	"proof": {
-	  "type": "JsonWebSignature2020",
-	  "verificationMethod": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3#6blITevSrnfDouuUN8G8u3zL2s1ry3B68ZiVjUw1UmY",
-	  "proofPurpose": "assertionMethod",
-	  "created": "2025-03-11T15:48:28.943+01:00",
-	  "@context": [
-		"https://www.w3.org/ns/credentials/v2",
-		"https://w3id.org/security/suites/jws-2020/v1"
-	  ],
-	  "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LIHTBrLVARx2zXGSWABAxWWAVtvxhFlWzgfvvvER1deQab6qq2La3Az13R8Iq9D5XMkX0e7qqxp0YejuNPdOAg"
-	}
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-legal-entity.json",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
+  "validFrom": "2025-09-29T07:40:29Z",
+  "validUntil": "2028-01-10T15:40:29Z",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/gaia-x/development",
+      {
+        "isicV4": "http://schema.org/isicV4"
+      }
+    ],
+    "id": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+    "isicV4": "5224",
+    "legalAddress": {
+      "countryCode": "GB",
+      "type": "Address"
+    },
+    "legalName": "Freight Forwarder, Ltd",
+    "registrationNumber": {
+      "eori": "GB987654321000",
+      "type": "EORI"
+    },
+    "type": "LegalPerson"
+  },
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "verificationMethod": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3#6blITevSrnfDouuUN8G8u3zL2s1ry3B68ZiVjUw1UmY",
+    "proofPurpose": "assertionMethod",
+    "created": "2025-03-11T15:48:28.943+01:00",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..aJVKv_XdH59Uo8EcYtHlfcNzc7_cWDY2bDx8SwKA7hI8cBiTnb-7yGsK-fdBDlpS0nViejD4_v9_MNOP-sxwDQ"
   }
+}

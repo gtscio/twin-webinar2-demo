@@ -8,8 +8,8 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
-  "validFrom": "2025-09-29T07:12:42Z",
-  "validUntil": "2028-01-10T15:12:42Z",
+  "validFrom": "2025-09-29T07:40:09Z",
+  "validUntil": "2028-01-10T15:40:09Z",
   "credentialSubject": {
     "@context": [
       "https://w3id.org/gaia-x/development",
@@ -39,6 +39,6 @@
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..hQ2Ony5ov6ZMB7YrETIz_LO-HMxBLPM4dlv2ECut47YHR6tsNggHJadh3IQPlduJCM50vU9CzRTblVyCFr6tDA"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..zVG0FAjwrdSVTVQzYWRSVb6o83A9Katw3awSy3IJrXENEeIMUnnj-nA0l6-Jer3A5KYtfMTMyw5gY92jt_mPDA"
   }
 }
