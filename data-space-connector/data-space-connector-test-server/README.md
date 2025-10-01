@@ -18,6 +18,8 @@ npm start
 
 ## Development mode
 
+You can find here [a suitable dotenv](env-example.env).
+
 Once you have performed a full build you can run the server in development mode, this will watch the TypeScript code, rebuild if there are any changes, and relaunch the server.
 
 ```shell
