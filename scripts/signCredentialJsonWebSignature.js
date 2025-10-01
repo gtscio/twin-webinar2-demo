@@ -47,7 +47,7 @@ const proof = {
 	type: ProofTypes.JsonWebSignature2020,
 	verificationMethod,
 	proofPurpose: 'assertionMethod',
-	created: '2025-03-11T15:48:28.943+01:00'
+	created: new Date().toISOString()
 };
 
 signer
