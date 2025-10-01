@@ -1,4 +1,4 @@
-# Data Space Connector 
+# Data Space Connector
 
 Materials for the second TWIN Webinar
 
