@@ -85,7 +85,6 @@ await run({
 	serverVersion: "0.0.1-next.4", // x-release-please-version
 	envPrefix: "DATA_SPACE_CONNECTOR_",
 	localesDirectory: path.resolve("dist/locales"),
-	openApiSpecFile: path.resolve("docs/open-api/spec.json"),
 	extendConfig,
 	extendEngine,
 	extendEngineServer

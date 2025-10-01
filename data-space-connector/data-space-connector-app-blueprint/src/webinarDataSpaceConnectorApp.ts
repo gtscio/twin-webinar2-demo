@@ -219,7 +219,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 							AuditableItemGraphContexts.ContextRoot,
 							AuditableItemGraphContexts.ContextRootCommon
 						],
-						id: objectVertexId,
+						targetId: objectVertexId,
 						type: AuditableItemGraphTypes.Edge,
 						edgeRelationships: ["https://vocabulary.uncefact.org/associatedDocument"]
 					};
