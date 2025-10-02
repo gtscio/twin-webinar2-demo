@@ -81,8 +81,6 @@ export async function webinarAppInitialiser(
 	let component: IDataSpaceConnectorApp | undefined;
 	let instanceType: string | undefined;
 
-	console.log("here!!!!!!")
-
 	if (instanceConfig.type === "service") {
 		component = new WebinarDataSpaceConnectorApp({
 			dataSpaceConnectorComponentType: engineCore.getRegisteredInstanceType(

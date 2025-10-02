@@ -6,9 +6,9 @@
  */
 export interface IWebinarAppConstructorOptions {
   /**
- * Logging component type.
- * @default logging
- */
+   * Logging component type.
+   * @default logging
+  */
   loggingComponentType?: string;
 
   /**
