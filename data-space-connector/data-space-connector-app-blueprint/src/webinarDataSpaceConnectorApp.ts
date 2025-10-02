@@ -10,20 +10,18 @@ import {
 } from "@twin.org/auditable-item-graph-models";
 import {
 	ComponentFactory,
-	type IValidationFailure,
-	Validation,
 	type IError,
 	Guards,
 	Is,
 	ObjectHelper
 } from "@twin.org/core";
 import { DataTypeHandlerFactory } from "@twin.org/data-core";
-import { type IJsonLdNodeObject, JsonLdHelper } from "@twin.org/data-json-ld";
-import type { IDataSpaceConnectorApp } from "@twin.org/data-space-connector-models";
+import { type IJsonLdNodeObject } from "@twin.org/data-json-ld";
+import type { IActivityQuery, IDataSpaceConnectorApp, IDataSpaceConnector } from "@twin.org/data-space-connector-models";
 import { DataSpaceConnectorClient } from "@twin.org/data-space-connector-rest-client";
 import { ComparisonOperator } from "@twin.org/entity";
 import type {
-	IDataSpaceConnector,
+	IDataSpaceConnector as IDataSpaceConnectorEntry,
 	IFederatedCatalogueComponent
 } from "@twin.org/federated-catalogue-models";
 import type { ILoggingComponent } from "@twin.org/logging-models";
@@ -58,16 +56,21 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 	private readonly _fedCatalogue: IFederatedCatalogueComponent;
 
 	/**
-	 * App Id.
+	 * The DS Connector Component
 	 * @internal
 	 */
-	private readonly _appId: string;
+	private readonly _dataSpaceConnectorComponent: IDataSpaceConnector;
 
 	/**
 	 * The identity of the Node.
 	 * @internal
 	 */
 	private _nodeIdentity: string;
+
+	/**
+	 * App Name.
+	 */
+	public static readonly APP_ID = "https://twin.example.org/app1";
 
 	/**
 	 * Constructor options.
@@ -92,8 +95,11 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 			})
 		}));
 
+		this._dataSpaceConnectorComponent = ComponentFactory.get<IDataSpaceConnector>(
+			options?.dataSpaceConnectorComponentType ?? "data-space-connector"
+		);
 		this._loggingService = ComponentFactory.getIfExists<ILoggingComponent>(
-			options.loggingComponentType
+			options?.loggingComponentType ?? "logging"
 		);
 
 		this._aigComponent = ComponentFactory.get<IAuditableItemGraphComponent>(
@@ -104,9 +110,25 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 			options.federatedCatalogueComponentType ?? "federated-catalogue-client"
 		);
 
-		this._appId = options.config.dataSpaceConnectorAppId;
-
 		this._nodeIdentity = process.env.DATA_SPACE_CONNECTOR_NODE_IDENTITY as string;
+	}
+
+	/**
+	 * The activities handled
+	 * @returns The activity query that describes the handled activities.
+	 */
+	public activitiesHandled(): IActivityQuery[] {
+		return [
+			{
+				objectType: "https://vocabulary.uncefact.org/Consignment",
+				activityType: "https://www.w3.org/ns/activitystreams#Create"
+			},
+			{
+				objectType: "https://vocabulary.uncefact.org/Document",
+				targetType: "https://vocabulary.uncefact.org/Consignment",
+				activityType: "https://www.w3.org/ns/activitystreams#Add"
+			}
+		]
 	}
 
 	/**
@@ -119,6 +141,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 		nodeLoggingComponentType: string | undefined
 	): Promise<void> {
 		this._nodeIdentity = nodeIdentity;
+		await this._dataSpaceConnectorComponent.registerApp(WebinarDataSpaceConnectorApp.APP_ID, this);
 	}
 
 	/**
@@ -131,7 +154,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 		await this._loggingService?.log({
 			level: "info",
 			source: this.CLASS_NAME,
-			message: `Webinar App Called: ${this._appId}. Activity Type: ${activityType}`
+			message: `Webinar App Called: ${WebinarDataSpaceConnectorApp.APP_ID}. Activity Type: ${activityType}`
 		});
 
 		const userIdentity = (activity.actor as { id: string }).id;
@@ -250,7 +273,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 								// The DID of the UK FSA
 								"did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975"
 							);
-							const dsConnector = dsConnectors.itemListElement[0] as IDataSpaceConnector;
+							const dsConnector = dsConnectors.itemListElement[0] as IDataSpaceConnectorEntry;
 							const endpoint = dsConnector.defaultEndpoint?.endpointURL;
 							await this._loggingService?.log({
 								level: "info",

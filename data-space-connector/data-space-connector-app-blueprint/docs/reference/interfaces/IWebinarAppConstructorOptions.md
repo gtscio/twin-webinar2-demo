@@ -2,11 +2,35 @@
 
 Test App Constructor options.
 
-## Extends
-
-- `IDataSpaceConnectorAppConstructorOptions`
-
 ## Properties
+
+### loggingComponentType?
+
+> `optional` **loggingComponentType**: `string`
+
+Logging component type.
+
+#### Default
+
+```ts
+logging
+```
+
+***
+
+### dataSpaceConnectorComponentType?
+
+> `optional` **dataSpaceConnectorComponentType**: `string`
+
+Data space connector component type.
+
+#### Default
+
+```ts
+data-space-connector
+```
+
+***
 
 ### auditableItemGraphComponentType?
 

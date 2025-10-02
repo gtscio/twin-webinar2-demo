@@ -8,11 +8,10 @@
 
 - [IWebinarAppConstructorOptions](interfaces/IWebinarAppConstructorOptions.md)
 
-## Variables
-
-- [WebinarAppDescriptor](variables/WebinarAppDescriptor.md)
-
 ## Functions
 
-- [appInitialiser](functions/appInitialiser.md)
+- [extensionInitialise](functions/extensionInitialise.md)
+- [extensionInitialiseEngine](functions/extensionInitialiseEngine.md)
+- [extensionInitialiseEngineServer](functions/extensionInitialiseEngineServer.md)
+- [webinarAppInitialiser](functions/webinarAppInitialiser.md)
 - [generateRestRoutes](functions/generateRestRoutes.md)

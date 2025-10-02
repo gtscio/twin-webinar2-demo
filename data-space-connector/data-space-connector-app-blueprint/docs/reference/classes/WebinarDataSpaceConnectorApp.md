@@ -38,7 +38,33 @@ Runtime name for the class.
 
 `IDataSpaceConnectorApp.CLASS_NAME`
 
+***
+
+### APP\_ID
+
+> `readonly` `static` **APP\_ID**: `"https://twin.example.org/app1"` = `"https://twin.example.org/app1"`
+
+App Name.
+
 ## Methods
+
+### activitiesHandled()
+
+> **activitiesHandled**(): `IActivityQuery`[]
+
+The activities handled
+
+#### Returns
+
+`IActivityQuery`[]
+
+The activity query that describes the handled activities.
+
+#### Implementation of
+
+`IDataSpaceConnectorApp.activitiesHandled`
+
+***
 
 ### start()
 

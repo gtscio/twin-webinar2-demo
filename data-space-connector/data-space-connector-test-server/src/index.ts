@@ -11,7 +11,7 @@ import {
 	FederatedCatalogueComponentType,
 	type IEngineConfig
 } from "@twin.org/engine-types";
-import { run } from "@twin.org/node-core";
+import { INodeEnvironmentVariables, run } from "@twin.org/node-core";
 import * as dotenv from "dotenv";
 
 
@@ -34,10 +34,26 @@ await run({
 
 /**
  * Extends the engine config with types specific.
+ * @param envVars The env vars.
  * @param engineConfig The engine configuration.
  */
-export async function extendConfig(engineConfig: IEngineConfig): Promise<void> {
+export async function extendConfig(envVars: INodeEnvironmentVariables, engineConfig: IEngineConfig): Promise<void> {
 	initSchema();
+	engineConfig.types.auditableItemGraphComponent = [
+		{
+			type: AuditableItemGraphComponentType.Service,
+			options: {},
+			restPath: "auditable-item-graph",
+		}
+	];
+	engineConfig.types.federatedCatalogueComponent = [
+		{
+			type: FederatedCatalogueComponentType.RestClient,
+			options: {
+				endpoint: "http://localhost:3020"
+			}
+		}
+	]
 }
 
 /**
@@ -47,25 +63,12 @@ export async function extendConfig(engineConfig: IEngineConfig): Promise<void> {
 export async function extendEngine(engineCore: IEngineCore): Promise<void> {
 	engineCore.addTypeInitialiser(
 		"auditableItemGraphComponent",
-		[
-			{
-				type: AuditableItemGraphComponentType.Service
-			}
-		],
 		"@twin.org/engine-types",
 		"initialiseAuditableItemGraphComponent"
 	);
 
 	engineCore.addTypeInitialiser(
 		"federatedCatalogueComponent",
-		[
-			{
-				type: FederatedCatalogueComponentType.RestClient,
-				options: {
-					endpoint: "http://localhost:3020"
-				}
-			}
-		],
 		"@twin.org/engine-types",
 		"initialiseFederatedCatalogueComponent"
 	);
@@ -76,15 +79,4 @@ export async function extendEngine(engineCore: IEngineCore): Promise<void> {
  * @param server The engine server.
  */
 export async function extendEngineServer(server: IEngineServer): Promise<void> {
-	server.addRestRouteGenerator(
-		"auditableItemGraphComponent",
-		[
-			{
-				restPath: "auditable-item-graph",
-				type: AuditableItemGraphComponentType.Service
-			}
-		],
-		"@twin.org/auditable-item-graph-service",
-		"generateRestRoutesAuditableItemGraph"
-	);
 }

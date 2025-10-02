@@ -33,6 +33,7 @@
 		"@twin.org/entity": "next",
 		"@twin.org/nameof": "next",
 		"@twin.org/node-core": "next",
+		"@twin.org/data-space-connector-app-runner": "next",
 		"@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint"
 	},
 	"devDependencies": {
