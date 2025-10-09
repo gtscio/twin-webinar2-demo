@@ -87,7 +87,7 @@ curl --location 'http://localhost:3020/federated-catalogue/participants'
 {
     "@context": [
         "https://schema.org",
-        "https://w3id.org/gaia-x/development",
+        "https://schema.twindev.org/gaia-x-loire/",
         "https://schema.twindev.org/federated-catalogue/"
     ],
     "type": "ItemList",
