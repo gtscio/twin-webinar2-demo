@@ -79,6 +79,8 @@ function issueComplianceCredential() {
 
         // Now it is needed to calculate the digest
         const digestCommand = `node ./calculateDigest.js "$(cat ${signedCredentialPath})"`;
+        console.log("Digest Command: ", digestCommand);
+
         const { output, error } = spawnSync("sh", ["-c", digestCommand]);
         if (error) {
             console.error("Error while calculating digest", error);
@@ -122,6 +124,7 @@ function createSignedCredential(credentialPath, identityData, identityFile) {
     const signingCommand = `node ./signCredentialJsonWebSignature.js "$(cat ${credentialPath})" "${identityData.did}#${
         identityData.privateKeyJwk.kid
     }" "$(cat ${identityFile.toString()})"`;
+    console.log("Signing:", signingCommand);
     const { error, output } = spawnSync("sh", ["-c", signingCommand]);
     if (error) {
         console.error("Error while signing credential: ", error);

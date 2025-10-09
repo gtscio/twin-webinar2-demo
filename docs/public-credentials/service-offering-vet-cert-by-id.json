@@ -8,10 +8,10 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-  "validFrom": "2025-09-16T14:54:02Z",
-  "validUntil": "2027-12-28T22:54:02Z",
+  "validFrom": "2025-10-09T15:45:30Z",
+  "validUntil": "2028-01-20T23:45:30Z",
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "aggregationOfResources": [
       "https://twin.example.org/data-resources/vet-cert-doc-6ce567"
     ],
@@ -62,11 +62,11 @@
     "type": "JsonWebSignature2020",
     "verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
     "proofPurpose": "assertionMethod",
-    "created": "2025-03-11T15:48:28.943+01:00",
+    "created": "2025-10-09T15:45:30.826Z",
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..6RLZjlhKmXuxoxzd0O9Ak651XYetSHjHU3qcRW-OnmCQUtiHEiFLHGvBpbdaMyuJeZWJNdEtS_JlbtjPhRnUAQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..-hD4U1SYsz-4c9Ox7bzLwhJs6lwxMLnF9IYzO_Hnnw5K0g-tHUuaRsL1tuz-EFmnjXeQy0bKVq3VyO8Xhyu5DQ"
   }
 }

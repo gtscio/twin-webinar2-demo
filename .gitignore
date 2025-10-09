@@ -141,3 +141,7 @@ vite.config.ts.timestamp-*
 .DS_Store
 
 .local-data
+
+dataset/identities/notary-*
+dataset/identities/clearing-house*
+dataset/identities/acme

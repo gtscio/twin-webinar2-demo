@@ -8,10 +8,10 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
-  "validFrom": "2025-09-17T17:37:52Z",
-  "validUntil": "2027-12-30T01:37:52Z",
+  "validFrom": "2025-10-09T15:08:26Z",
+  "validUntil": "2028-01-20T23:08:26Z",
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "aggregationOfResources": [
       "https://twin.example.org/data-resources/exporter-docs-817a9d",
       "https://twin.example.org/data-resources/exporter-consignments-817a9d"
@@ -59,11 +59,11 @@
     "type": "JsonWebSignature2020",
     "verificationMethod": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d#bcQWcv9Jw-tXoQSspSsPx_Hpl-oDQuTqmhq5QwfwXPs",
     "proofPurpose": "assertionMethod",
-    "created": "2025-03-11T15:48:28.943+01:00",
+    "created": "2025-10-09T15:08:26.983Z",
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Kl1grslxBY0oVmv3_jUigYARblWem5QAdyttQoFC5Hw9n8jZjiT1q5WT3l82F-9kOodJgrvKnMe77WDVXbMKCQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..k4HGsLJutftqCHNkN1UX79WCZanE0j00IgnTdnxaxlOoCVvjEAbfVQfSWXoF0IRNfYTqy-xh_rX2aKdLLROYDQ"
   }
 }

@@ -1,6 +1,6 @@
 {
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "type": "DataResource"
   },
   "evidence": [
@@ -8,7 +8,7 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/exporter-data-resource-consignments.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-Ts9GqZsXb6KpmVFPML9t2Rlq+JgsszLrX54BLtQQaIw="
+      "digestSRI": "sha256-SX5hnScfYc8I7Q3+kvoLpkXVRuDL0DtG6s1/skvPQKc="
     }
   ]
 }

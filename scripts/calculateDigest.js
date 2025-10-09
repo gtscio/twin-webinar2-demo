@@ -11,20 +11,20 @@
  * Output: The digest following the SRI representation format.
  */
 
-import { createHash } from 'node:crypto';
-import { JsonHelper } from '@twin.org/core';
+import { JsonHelper, Converter } from "@twin.org/core";
+import { Sha256, Sha512 } from "@twin.org/crypto";
 
 const jsonStrData = process.argv[2];
 
 if (!jsonStrData) {
-	console.log('Please provide JSON Content');
-	// eslint-disable-next-line unicorn/no-process-exit
-	process.exit(-1);
+    console.log("Please provide JSON Content");
+    // eslint-disable-next-line unicorn/no-process-exit
+    process.exit(-1);
 }
 
 let jsonObject = JSON.parse(jsonStrData);
 if (jsonObject.credential) {
-	jsonObject = jsonObject.credential;
+    jsonObject = jsonObject.credential;
 }
 delete jsonObject.proof;
 
@@ -35,9 +35,9 @@ const hash = sha256(canonical);
 console.log(`sha256-${hash}`);
 
 function sha256(input) {
-	if (!input) {
-		return null;
-	}
+    if (!input) {
+        return null;
+    }
 
-	return createHash('sha256').update(input).digest('base64');
+    return Converter.bytesToBase64(Sha256.sum256(Converter.utf8ToBytes(input)));
 }

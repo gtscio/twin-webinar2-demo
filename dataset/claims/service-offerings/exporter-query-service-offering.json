@@ -1,7 +1,7 @@
 {
     "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-exporter-query.json",
     "credentialSubject": {
-        "@context": "https://w3id.org/gaia-x/development",
+        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
         "id": "https://twin.example.org/service-offerings/exporter-query-service",
         "type": "ServiceOffering",
         "name": "Query Service Offering for Exporter",

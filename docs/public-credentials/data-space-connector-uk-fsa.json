@@ -8,17 +8,17 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975",
-  "validFrom": "2025-09-22T07:37:43Z",
-  "validUntil": "2028-01-03T15:37:43Z",
+  "validFrom": "2025-10-09T15:43:12Z",
+  "validUntil": "2028-01-20T23:43:12Z",
   "credentialSubject": {
     "@context": [
-      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
       "https://schema.twindev.org/federated-catalogue/types.jsonld"
     ],
     "defaultEndpoint": {
       "endpointURL": "http://localhost:44444/data-space-connector"
     },
-    "id": "https://my-ds-connectors.example.org/ds-connector-uk-fsa",
+    "id": "https://my-ds-connectors.example.org/ds-connector-ukfsa",
     "identity": "did:iota:33333333",
     "maintainer": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975",
     "offeredResource": {},
@@ -40,11 +40,11 @@
     "type": "JsonWebSignature2020",
     "verificationMethod": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975#AG9ks57_6f3OULHMIy_gfAfWtkSxi8sJoHPVQcA20Yk",
     "proofPurpose": "assertionMethod",
-    "created": "2025-03-11T15:48:28.943+01:00",
+    "created": "2025-10-09T15:43:13.063Z",
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..7THTFhAFiTPekh9QBSeBt7WWwraQd8w-tCF5FpDTSkQFSnXNmmsK2h8rD5ho4slXo635q0HVGNPgTqIReh-RDQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..6wj7yN4XdnxdgXWLO8943nRsLvhwASMRQR04ZHfg2UiLk0TXD6crf0EjvH2puaV0H9Pio5_C8lb0iB2H3_n3CA"
   }
 }

@@ -8,11 +8,11 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
-  "validFrom": "2025-09-29T07:39:54Z",
-  "validUntil": "2028-01-10T15:39:54Z",
+  "validFrom": "2025-10-09T15:05:41Z",
+  "validUntil": "2028-01-20T23:05:41Z",
   "credentialSubject": {
     "@context": [
-      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
       {
         "description_pl": {
           "@id": "http://schema.org/description",
@@ -40,11 +40,11 @@
     "type": "JsonWebSignature2020",
     "verificationMethod": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3#6blITevSrnfDouuUN8G8u3zL2s1ry3B68ZiVjUw1UmY",
     "proofPurpose": "assertionMethod",
-    "created": "2025-03-11T15:48:28.943+01:00",
+    "created": "2025-10-09T15:05:42.452Z",
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..JDBxE_WzzdkkY6Urme1Ooge1W3IVP0KwE0XOwU3uHJXr1OjU48WxDsHF_gtnMEat8_8Hw2BPJ0LQ-GkfeAe-Bw"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YVenoQeXFeNEy23hsBpvene7AzjzfbLiaCe9wp7oWo73IBQiTinYwFr6ggMS9iWCqYO3xD-Zz-HnXG8tIWfSBQ"
   }
 }

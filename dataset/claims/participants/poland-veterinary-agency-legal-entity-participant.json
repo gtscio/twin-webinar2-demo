@@ -2,7 +2,7 @@
 	"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-legal-entity.json",
 	"credentialSubject": {
 		"@context": [
-			"https://w3id.org/gaia-x/development",
+			"https://schema.twindev.org/gaia-x-loire/types.jsonld",
 			{
 				"isicV4": "http://schema.org/isicV4",
 				"description_pl": {

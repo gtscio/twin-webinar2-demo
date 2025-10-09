@@ -1,7 +1,7 @@
 {
     "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-vet-cert-by-id.json",
     "credentialSubject": {
-        "@context": "https://w3id.org/gaia-x/development",
+        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
         "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567-by-id",
         "type": "ServiceOffering",
         "name": "VetCert Service Offering",

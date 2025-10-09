@@ -8,10 +8,10 @@
     "VerifiableCredential"
   ],
   "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-  "validFrom": "2025-09-29T07:39:57Z",
-  "validUntil": "2028-01-10T15:39:57Z",
+  "validFrom": "2025-10-09T15:05:43Z",
+  "validUntil": "2028-01-20T23:05:43Z",
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "digestSRI": "sha256-0aXialGx6tzl9LQVIoVSkkDv6LCdYvJIcy4e5l7vNjU=",
     "id": "https://gtscio.github.io/twin-webinar2-demo/docs/terms-and-conditions.json",
     "type": "TermsAndConditions"
@@ -20,11 +20,11 @@
     "type": "JsonWebSignature2020",
     "verificationMethod": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567#Nz2ePg5w3dq2CRpr0LdwkdTCE5Kx83G-WxG9jbqNCF4",
     "proofPurpose": "assertionMethod",
-    "created": "2025-03-11T15:48:28.943+01:00",
+    "created": "2025-10-09T15:05:44.318Z",
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://w3id.org/security/suites/jws-2020/v1"
     ],
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..uFLdMTWXBMajl_GIp_Gr1yiNxa99APwwWA7AyFRZkalXRVvcA4IpYDos5ZPtM7fxLAkev5m2ADcR26H8MX7lCQ"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19.._X6dPha0XJgpj05jkQ9AcVp-IiHJ8J00eByqYFAvcglWaQgejYknAeb4zUNNyG-aTFzeoneR0M2NBebqevzcBA"
   }
 }

@@ -2,7 +2,7 @@
     "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
     "credentialSubject": {
         "@context": [
-            "https://w3id.org/gaia-x/development",
+            "https://schema.twindev.org/gaia-x-loire/types.jsonld",
             {
                 "conformsTo": "http://purl.org/dc/terms/conformsTo"
             }

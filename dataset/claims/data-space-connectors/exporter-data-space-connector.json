@@ -2,7 +2,7 @@
     "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-exporter.json",
     "credentialSubject": {
         "@context": [
-            "https://w3id.org/gaia-x/development",
+            "https://schema.twindev.org/gaia-x-loire/types.jsonld",
             "https://schema.twindev.org/federated-catalogue/types.jsonld"
         ],
         "id": "https://my-ds-connectors.example.org/ds-connector-exporter",

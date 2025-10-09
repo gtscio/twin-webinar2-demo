@@ -1,6 +1,6 @@
 {
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "type": "LegalEntity"
   },
   "evidence": [
@@ -8,13 +8,13 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-exporter-legal-entity.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-WuKhe434qbFuxnwHbJGhNm+LB0dOpPDfz4ghsDdO3ng="
+      "digestSRI": "sha256-3Ii4PIFlvOAFtFCJ8Pn88dsfnMIbNXGz+Yv6rELnfyg="
     },
     {
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-exporter-terms-and-conditions.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-KsONgM3POd90Tr9Zc+bPhi5FrEdisdeKq42smr0dMX8="
+      "digestSRI": "sha256-FPEOKrN48uZPwxLNVLhGwQP8r0nN+rAC/mKeXtJMuZo="
     }
   ]
 }

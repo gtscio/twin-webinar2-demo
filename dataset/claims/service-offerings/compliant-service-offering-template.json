@@ -1,6 +1,6 @@
 {
     "credentialSubject": {
-        "@context": "https://w3id.org/gaia-x/development",
+        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
         "type": "ServiceOffering"
     },
     "evidence": [

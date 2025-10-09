@@ -1,6 +1,6 @@
 {
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "type": "LegalEntity"
   },
   "evidence": [
@@ -8,13 +8,13 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/uk-fsa-legal-entity.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-ej5smHRv9kmASms8C/I3KbvFOlJP4P6hY8Jt22awnPA="
+      "digestSRI": "sha256-/0oknIRDZqMtI9yZgjibpqXIdDPdr0r4ixeWoQ1mfN8="
     },
     {
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/uk-fsa-terms-and-conditions.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-7ZXG6LRAKaYHDEmif4MlmZiH2PIRHaoVL40r5LwAaTI="
+      "digestSRI": "sha256-/o9jXGZfmlQmC7n4ECKCzqFOrgkTQguaippYP507KUI="
     }
   ]
 }

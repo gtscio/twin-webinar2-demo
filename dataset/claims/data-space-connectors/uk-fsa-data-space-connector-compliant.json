@@ -1,7 +1,7 @@
 {
   "credentialSubject": {
     "@context": [
-      "https://w3id.org/gaia-x/development",
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
       "https://schema.twindev.org/federated-catalogue/types.jsonld"
     ],
     "type": [
@@ -14,7 +14,7 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-uk-fsa.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-k5rNvO7bSAoIT+QT8Qx5oGPC578Q9CxkT5ZzbafrNvQ="
+      "digestSRI": "sha256-CwZ21DjHgS/FTzyAP9s0Mu++2IBGVjSC1BCGM+PVQd4="
     }
   ]
 }

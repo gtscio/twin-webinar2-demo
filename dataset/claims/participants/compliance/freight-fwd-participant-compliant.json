@@ -1,6 +1,6 @@
 {
   "credentialSubject": {
-    "@context": "https://w3id.org/gaia-x/development",
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
     "type": "LegalEntity"
   },
   "evidence": [
@@ -8,13 +8,13 @@
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-legal-entity.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-5jnA+2sBtVSXxdecQLPpBueNo/6zk1d5t5/UwkEzABY="
+      "digestSRI": "sha256-dVHs66LfFHGDqALSy0FlusVI2zg7Kz1ml1WvBYJpsOM="
     },
     {
       "type": "CompliantCredential",
       "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json",
       "credentialType": "VerifiableCredential",
-      "digestSRI": "sha256-iih/6Gkp2fV7TB7w0C/iSAEDsGOY+yAXuzbFcFmFaYc="
+      "digestSRI": "sha256-Dbp3hQmNDgnyZ7XfYReSxbXNqsxeYruZ4ngpiOUCiSM="
     }
   ]
 }

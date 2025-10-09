@@ -7,6 +7,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-      "@twin.org/standards-w3c-did": "next"
+      "@twin.org/standards-w3c-did": "next",
+      "@twin.org/crypto": "next"
     }
   }
