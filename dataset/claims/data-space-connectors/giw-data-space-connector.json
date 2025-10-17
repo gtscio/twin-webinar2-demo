@@ -1,34 +1,31 @@
 {
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-giw.json",
-    "credentialSubject": {
-        "@context": [
-            "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-            "https://schema.twindev.org/federated-catalogue/types.jsonld"
-        ],
-        "id": "https://my-ds-connectors.example.org/ds-connector-giw",
-        "type": [
-            "DataSpaceConnector",
-            "DataExchangeComponent"
-        ],
-        "identity": "did:iota:88888",
-        "defaultEndpoint": {
-            "endpointURL": "http://localhost:33333/data-space-connector"
-        },
-        "subscriptionActivityEndpoint": {
-            "endpointURL": "/subscriptions"
-        },
-        "pushActivityEndpoint": {
-            "endpointURL": "/notify"
-        },
-        "pullDataEndpoint": {
-            "endpointURL": "/data"
-        },
-        "offeredResource": {
-            "https://twin.example.org/data-resources/vet-cert-doc-6ce567": {
-                "type": "DataResource",
-                "name": "Veterinary Certificates"
-            }
-        },
-        "maintainer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567"
-    }
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-giw.json",
+  "credentialSubject": {
+    "@context": [
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "id": "https://my-ds-connectors.example.org/ds-connector-giw",
+    "type": ["DataSpaceConnector", "DataExchangeComponent"],
+    "identity": "did:iota:88888",
+    "defaultEndpoint": {
+      "endpointURL": "http://localhost:33333/data-space-connector"
+    },
+    "subscriptionActivityEndpoint": {
+      "endpointURL": "/subscriptions"
+    },
+    "pushActivityEndpoint": {
+      "endpointURL": "/notify"
+    },
+    "pullDataEndpoint": {
+      "endpointURL": "/data"
+    },
+    "offeredResource": {
+      "https://twin.example.org/data-resources/vet-cert-doc-6ce567": {
+        "type": "DataResource",
+        "name": "Veterinary Certificates"
+      }
+    },
+    "maintainer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567"
+  }
 }

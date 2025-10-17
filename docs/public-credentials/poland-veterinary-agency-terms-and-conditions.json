@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-terms-and-conditions.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
   "validFrom": "2025-10-09T15:05:43Z",
   "validUntil": "2028-01-20T23:05:43Z",

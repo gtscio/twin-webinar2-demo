@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-uk-fsa.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975",
   "validFrom": "2025-10-09T15:43:12Z",
   "validUntil": "2028-01-20T23:43:12Z",
@@ -31,10 +29,7 @@
     "subscriptionActivityEndpoint": {
       "endpointURL": "/subscriptions"
     },
-    "type": [
-      "DataSpaceConnector",
-      "DataExchangeComponent"
-    ]
+    "type": ["DataSpaceConnector", "DataExchangeComponent"]
   },
   "proof": {
     "type": "JsonWebSignature2020",

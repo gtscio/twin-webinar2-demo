@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-giw.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
   "validFrom": "2025-10-09T15:41:29Z",
   "validUntil": "2028-01-20T23:41:29Z",
@@ -36,10 +34,7 @@
     "subscriptionActivityEndpoint": {
       "endpointURL": "/subscriptions"
     },
-    "type": [
-      "DataSpaceConnector",
-      "DataExchangeComponent"
-    ]
+    "type": ["DataSpaceConnector", "DataExchangeComponent"]
   },
   "proof": {
     "type": "JsonWebSignature2020",

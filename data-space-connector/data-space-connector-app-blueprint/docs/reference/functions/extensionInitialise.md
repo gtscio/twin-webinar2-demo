@@ -2,7 +2,7 @@
 
 > **extensionInitialise**(`envVars`, `nodeEngineConfig`): `Promise`\<`void`\>
 
-Initialise the  extension.
+Initialise the extension.
 
 ## Parameters
 

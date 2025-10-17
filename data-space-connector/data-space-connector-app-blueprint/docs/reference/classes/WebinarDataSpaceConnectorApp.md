@@ -28,9 +28,9 @@ The constructor options.
 
 ## Properties
 
-### CLASS\_NAME
+### CLASS_NAME
 
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` **CLASS_NAME**: `string`
 
 Runtime name for the class.
 
@@ -38,11 +38,11 @@ Runtime name for the class.
 
 `IDataSpaceConnectorApp.CLASS_NAME`
 
-***
+---
 
-### APP\_ID
+### APP_ID
 
-> `readonly` `static` **APP\_ID**: `"https://twin.example.org/app1"` = `"https://twin.example.org/app1"`
+> `readonly` `static` **APP_ID**: `"https://twin.example.org/app1"` = `"https://twin.example.org/app1"`
 
 App Name.
 
@@ -64,7 +64,7 @@ The activity query that describes the handled activities.
 
 `IDataSpaceConnectorApp.activitiesHandled`
 
-***
+---
 
 ### start()
 
@@ -94,7 +94,7 @@ Node Logging Type.
 
 `IDataSpaceConnectorApp.start`
 
-***
+---
 
 ### handleActivity()
 

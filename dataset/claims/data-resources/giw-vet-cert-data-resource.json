@@ -1,59 +1,57 @@
 {
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
-    "credentialSubject": {
-        "@context": [
-            "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-            {
-                "conformsTo": "http://purl.org/dc/terms/conformsTo"
-            }
-        ],
-        "id": "https://twin.example.org/data-resources/vet-cert-doc-6ce567",
-        "type": "DataResource",
-        "producedBy": {
-            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "type": "LegalPerson"
-        },
-        "exposedThrough": "https://my-ds-connectors.example.org/giw-ds-connector",
-        "copyrightOwnedBy": {
-            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "type": "LegalPerson"
-        },
-        "license": "http://licenses.example.org/phyto-doc",
-        "conformsTo": {
-            "@context": "https://www.w3.org/ns/credentials/v2",
-            "type": "JsonSchema",
-            "jsonSchema": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "const": "Document"
-                    },
-                    "documentTypeCode": {
-                        "type": "string",
-                        "const": "unece:DocumentCodeList#853"
-                    },
-                    "issuerParty": {
-                        "type": "string",
-                        "const": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567"
-                    }
-                }
-            }
-        },
-        "resourcePolicy": {
-            "@context": [
-                "http://www.w3.org/ns/odrl.jsonld"
-            ],
-            "@type": "Offer",
-            "uid": "http://example.com/policy-data-resource-giw:1010",
-            "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "permission": [
-                {
-                    "target": "https://twin.example.org/data-resources/vet-doc-6ce567",
-                    "action": "read"
-                }
-            ]
-        },
-        "name": "Veterinary Certificate Documents Data Resource"
-    }
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-resource-vet-doc.json",
+  "credentialSubject": {
+    "@context": [
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+      {
+        "conformsTo": "http://purl.org/dc/terms/conformsTo"
+      }
+    ],
+    "id": "https://twin.example.org/data-resources/vet-cert-doc-6ce567",
+    "type": "DataResource",
+    "producedBy": {
+      "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "type": "LegalPerson"
+    },
+    "exposedThrough": "https://my-ds-connectors.example.org/giw-ds-connector",
+    "copyrightOwnedBy": {
+      "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "type": "LegalPerson"
+    },
+    "license": "http://licenses.example.org/phyto-doc",
+    "conformsTo": {
+      "@context": "https://www.w3.org/ns/credentials/v2",
+      "type": "JsonSchema",
+      "jsonSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "Document"
+          },
+          "documentTypeCode": {
+            "type": "string",
+            "const": "unece:DocumentCodeList#853"
+          },
+          "issuerParty": {
+            "type": "string",
+            "const": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567"
+          }
+        }
+      }
+    },
+    "resourcePolicy": {
+      "@context": ["http://www.w3.org/ns/odrl.jsonld"],
+      "@type": "Offer",
+      "uid": "http://example.com/policy-data-resource-giw:1010",
+      "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "permission": [
+        {
+          "target": "https://twin.example.org/data-resources/vet-doc-6ce567",
+          "action": "read"
+        }
+      ]
+    },
+    "name": "Veterinary Certificate Documents Data Resource"
+  }
 }

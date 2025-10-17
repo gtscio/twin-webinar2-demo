@@ -20,43 +20,45 @@ const verificationMethod = process.argv[3];
 const privateKeyData = process.argv[4];
 
 if (!jsonStrData || !verificationMethod || !privateKeyData) {
-	console.error(
-		'Three parameters are needed: <credential as JSON> <verification method> <private key as JSON>'
-	);
-	exit(-1);
+  console.error(
+    'Three parameters are needed: <credential as JSON> <verification method> <private key as JSON>',
+  );
+  exit(-1);
 }
 let jsonObject = JSON.parse(jsonStrData);
 if (jsonObject.credential) {
-	jsonObject = jsonObject.credential;
+  jsonObject = jsonObject.credential;
 } else {
-	console.error('No credential has been supplied in the JSON content');
-	exit(-1);
+  console.error('No credential has been supplied in the JSON content');
+  exit(-1);
 }
 delete jsonObject.proof;
 
 const privateKeyJsonObject = JSON.parse(privateKeyData);
 if (!privateKeyJsonObject.privateKeyJwk) {
-	console.error('No private key JWK has been supplied in the JSON content');
-	exit(-1);
+  console.error('No private key JWK has been supplied in the JSON content');
+  exit(-1);
 }
 
 const privateKeyJwk = privateKeyJsonObject.privateKeyJwk;
 
-const signer = ProofHelper.createSignerVerifier(ProofTypes.JsonWebSignature2020);
+const signer = ProofHelper.createSignerVerifier(
+  ProofTypes.JsonWebSignature2020,
+);
 const proof = {
-	type: ProofTypes.JsonWebSignature2020,
-	verificationMethod,
-	proofPurpose: 'assertionMethod',
-	created: new Date().toISOString()
+  type: ProofTypes.JsonWebSignature2020,
+  verificationMethod,
+  proofPurpose: 'assertionMethod',
+  created: new Date().toISOString(),
 };
 
 signer
-	.createProof(jsonObject, proof, privateKeyJwk)
-	.then(calculatedProof => {
-		const signedCredential = { ...jsonObject, proof: calculatedProof };
-		console.log(JSON.stringify(signedCredential, null, 2));
-		return 0;
-	})
-	.catch(err => {
-		console.error(err);
-	});
+  .createProof(jsonObject, proof, privateKeyJwk)
+  .then((calculatedProof) => {
+    const signedCredential = { ...jsonObject, proof: calculatedProof };
+    console.log(JSON.stringify(signedCredential, null, 2));
+    return 0;
+  })
+  .catch((err) => {
+    console.error(err);
+  });

@@ -1,15 +1,15 @@
 {
-    "did": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
-	"indexPrivateKeyDidController": 1,
-    "privateKeyJwk": {
-		"kid": "GSDiSNb4AWy2am18nq_MsflXHRsjBQ4DPLJOHYNnZxY",
-		"kty": "OKP",
-		"use": "enc",
-		"alg": "EdDSA",
-		"crv": "Ed25519",
-		"x": "LdVo7r_WA5wjonwrwQhFV52OSNbLFNYS6Q185bNFypc",
-		"d": "NK2olG75QWAdiZjfsG3VG-VY6Z-HK8er9XAH4GCb_g8"
-	},
-	"privateKeyVerificationMethodRaw": "0x34ada8946ef941601d8998dfb06dd51be558e99f872bc7abf57007e0609bfe0f",
-	"publicKeyVerificationMethodRaw": "0x2dd568eebfd6039c23a27c2bc10845579d8e48d6cb14d612e90d7ce5b345ca97"
+  "did": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
+  "indexPrivateKeyDidController": 1,
+  "privateKeyJwk": {
+    "kid": "GSDiSNb4AWy2am18nq_MsflXHRsjBQ4DPLJOHYNnZxY",
+    "kty": "OKP",
+    "use": "enc",
+    "alg": "EdDSA",
+    "crv": "Ed25519",
+    "x": "LdVo7r_WA5wjonwrwQhFV52OSNbLFNYS6Q185bNFypc",
+    "d": "NK2olG75QWAdiZjfsG3VG-VY6Z-HK8er9XAH4GCb_g8"
+  },
+  "privateKeyVerificationMethodRaw": "0x34ada8946ef941601d8998dfb06dd51be558e99f872bc7abf57007e0609bfe0f",
+  "publicKeyVerificationMethodRaw": "0x2dd568eebfd6039c23a27c2bc10845579d8e48d6cb14d612e90d7ce5b345ca97"
 }

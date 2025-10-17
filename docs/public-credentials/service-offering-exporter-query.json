@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-exporter-query.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
   "validFrom": "2025-10-09T15:08:26Z",
   "validUntil": "2028-01-20T23:08:26Z",
@@ -24,9 +22,7 @@
       "type": "LegalPerson"
     },
     "servicePolicy": {
-      "@context": [
-        "http://www.w3.org/ns/odrl.jsonld"
-      ],
+      "@context": ["http://www.w3.org/ns/odrl.jsonld"],
       "@type": "Agreement",
       "assignee": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
       "assigner": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d",
@@ -35,19 +31,13 @@
         {
           "action": "read",
           "target": {
-            "type": [
-              "Asset",
-              "https://vocabulary.uncefact.org/Document"
-            ]
+            "type": ["Asset", "https://vocabulary.uncefact.org/Document"]
           }
         },
         {
           "action": "read",
           "target": {
-            "type": [
-              "Asset",
-              "https://vocabulary.uncefact.org/Consignment"
-            ]
+            "type": ["Asset", "https://vocabulary.uncefact.org/Consignment"]
           }
         }
       ],

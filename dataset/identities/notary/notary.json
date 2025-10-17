@@ -1,14 +1,14 @@
 {
-	"did": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
-	"privateKeyJwk": {
-		"kid": "6blITevSrnfDouuUN8G8u3zL2s1ry3B68ZiVjUw1UmY",
-		"kty": "OKP",
-		"use": "sig",
-		"alg": "EdDSA",
-		"crv": "Ed25519",
-		"x": "Pul4GovgXZ38sdipps9jwEpqd_G66Th09d9cCLPRzzg",
-		"d": "3wKexuKe8ALB_95WBLtAVAaGlS_6Oc579dZ5BYfzqiY"
-	},
-	"privateKeyVerificationMethodRaw": "0xdf029ec6e29ef002c1ffde5604bb40540686952ffa39ce7bf5d6790587f3aa26",
-	"publicKeyVerificationMethodRaw": "0x3ee9781a8be05d9dfcb1d8a9a6cf63c04a6a77f1bae93874f5df5c08b3d1cf38"
+  "did": "did:iota:testnet:0x9ec03fa600bfce91253b6383f8fc3fd0adf3308b6fe5a35ccf1803bf793b6ee3",
+  "privateKeyJwk": {
+    "kid": "6blITevSrnfDouuUN8G8u3zL2s1ry3B68ZiVjUw1UmY",
+    "kty": "OKP",
+    "use": "sig",
+    "alg": "EdDSA",
+    "crv": "Ed25519",
+    "x": "Pul4GovgXZ38sdipps9jwEpqd_G66Th09d9cCLPRzzg",
+    "d": "3wKexuKe8ALB_95WBLtAVAaGlS_6Oc579dZ5BYfzqiY"
+  },
+  "privateKeyVerificationMethodRaw": "0xdf029ec6e29ef002c1ffde5604bb40540686952ffa39ce7bf5d6790587f3aa26",
+  "publicKeyVerificationMethodRaw": "0x3ee9781a8be05d9dfcb1d8a9a6cf63c04a6a77f1bae93874f5df5c08b3d1cf38"
 }

@@ -1,28 +1,28 @@
 {
-	"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-legal-entity.json",
-	"credentialSubject": {
-		"@context": [
-			"https://schema.twindev.org/gaia-x-loire/types.jsonld",
-			{
-				"isicV4": "http://schema.org/isicV4",
-				"description_pl": {
-					"@id": "http://schema.org/description",
-					"@language": "pl"
-				}
-			}
-		],
-		"type": "LegalPerson",
-		"registrationNumber": {
-			"type": "LocalRegistrationNumber",
-			"local": "P123456"
-		},
-		"legalAddress": {
-			"type": "Address",
-			"countryCode": "PL"
-		},
-		"description": "General Veterinary Inspectorate",
-		"description_pl": "Główny Inspektorat Weterynarii",
-		"legalName": "GIW",
-		"isicV4": "8413"
-	}
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/poland-veterinary-agency-legal-entity.json",
+  "credentialSubject": {
+    "@context": [
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+      {
+        "isicV4": "http://schema.org/isicV4",
+        "description_pl": {
+          "@id": "http://schema.org/description",
+          "@language": "pl"
+        }
+      }
+    ],
+    "type": "LegalPerson",
+    "registrationNumber": {
+      "type": "LocalRegistrationNumber",
+      "local": "P123456"
+    },
+    "legalAddress": {
+      "type": "Address",
+      "countryCode": "PL"
+    },
+    "description": "General Veterinary Inspectorate",
+    "description_pl": "Główny Inspektorat Weterynarii",
+    "legalName": "GIW",
+    "isicV4": "8413"
+  }
 }

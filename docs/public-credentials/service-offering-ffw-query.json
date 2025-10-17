@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-ffw-query.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
   "validFrom": "2025-10-09T15:09:27Z",
   "validUntil": "2028-01-20T23:09:27Z",
@@ -48,10 +46,7 @@
               "rightOperand": "GB"
             },
             "target": {
-              "type": [
-                "Asset",
-                "https://vocabulary.uncefact.org/Consignment"
-              ]
+              "type": ["Asset", "https://vocabulary.uncefact.org/Consignment"]
             }
           },
           {
@@ -65,10 +60,7 @@
               "rightOperand": "unece:DocumentCodeList#853"
             },
             "target": {
-              "type": [
-                "Asset",
-                "https://vocabulary.uncefact.org/Document"
-              ]
+              "type": ["Asset", "https://vocabulary.uncefact.org/Document"]
             }
           }
         ],

@@ -1,82 +1,84 @@
 {
-	"name": "@twindev.org/data-space-connector-webinar-app",
-	"version": "0.0.1",
-	"description": "Data Space Connector App Webinar",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gtscio/twin-webinar2-demo.git",
-		"directory": "data-space-connector/data-space-connector-webinar-app"
-	},
-	"author": "jose.cantera@iota.org",
-	"license": "Apache-2.0",
-	"type": "module",
-	"engines": {
-		"node": ">=20.0.0"
-	},
-	"private": true,
-	"scripts": {
-		"clean": "rimraf dist coverage docs/reference src/schemas",
-		"build:compile": "tsc",
-		"build": "npm run build:compile",
-		"build:watch": "tsc-watch --onSuccess \"npm run bundle:esm\"",
-		"test": "vitest --run --config ./vitest.config.ts --no-cache",
-		"test:build": "tsc -p ./tests/tsconfig.json --noEmit",
-		"coverage": "vitest --run --coverage --config ./vitest.config.ts --no-cache",
-		"bundle:esm": "rollup --config rollup.config.mjs --environment MODULE:esm",
-		"bundle:cjs": "rollup --config rollup.config.mjs --environment MODULE:cjs",
-		"bundle": "npm run bundle:esm && npm run bundle:cjs",
-		"docs:clean": "rimraf docs/reference",
-		"docs:generate": "typedoc",
-		"docs": "npm run docs:clean && npm run docs:generate",
-		"dist": "npm run clean && npm run build && npm run test:build && npm run test && npm run bundle && npm run docs",
-		"dist:no-test": "npm run clean && npm run build && npm run bundle && npm run docs",
-		"prepare": "ts-patch install -s"
-	},
-	"dependencies": {
-		"@twin.org/api-models": "next",
-		"@twin.org/core": "next",
-		"@twin.org/data-core": "next",
-		"@twin.org/data-json-ld": "next",
-		"@twin.org/data-space-connector-models": "next",
-		"@twin.org/engine-models": "next",
-		"@twin.org/logging-models": "next",
-		"@twin.org/nameof": "next",
-		"@twin.org/standards-w3c-activity-streams": "next",
-		"@twin.org/auditable-item-graph-models": "next",
-		"@twin.org/entity": "next",
-		"@twin.org/federated-catalogue-models": "next",
-		"@twin.org/data-space-connector-rest-client": "next"
-	},
-	"devDependencies": {
-		"@twin.org/nameof-transformer": "next",
-		"@twin.org/nameof-vitest-plugin": "next",
-		"@types/node": "24.3.0",
-		"copyfiles": "2.4.1",
-		"nodemon": "3.1.10",
-		"rimraf": "6.0.1",
-		"rollup": "4.49.0",
-		"ts-patch": "3.3.0",
-		"typedoc": "0.28.11",
-		"typedoc-plugin-markdown": "4.8.1",
-		"typescript": "5.9.2",
-		"vitest": "3.2.4"
-	},
-	"main": "./dist/cjs/index.cjs",
-	"module": "./dist/esm/index.mjs",
-	"types": "./dist/types/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/types/index.d.ts",
-			"require": "./dist/cjs/index.cjs",
-			"import": "./dist/esm/index.mjs"
-		},
-		"./locales/*.json": "./locales/*.json"
-	},
-	"files": [
-		"dist/cjs",
-		"dist/esm",
-		"dist/types",
-		"locales",
-		"docs"
-	]
+  "name": "@twindev.org/data-space-connector-webinar-app",
+  "version": "0.0.1",
+  "description": "Data Space Connector App Webinar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtscio/twin-webinar2-demo.git",
+    "directory": "data-space-connector/data-space-connector-webinar-app"
+  },
+  "author": "jose.cantera@iota.org",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist coverage docs/reference src/schemas",
+    "build:compile": "tsc",
+    "build": "npm run build:compile",
+    "build:watch": "tsc-watch --onSuccess \"npm run bundle:esm\"",
+    "test": "vitest --run --config ./vitest.config.ts --no-cache",
+    "test:build": "tsc -p ./tests/tsconfig.json --noEmit",
+    "coverage": "vitest --run --coverage --config ./vitest.config.ts --no-cache",
+    "bundle:esm": "rollup --config rollup.config.mjs --environment MODULE:esm",
+    "bundle:cjs": "rollup --config rollup.config.mjs --environment MODULE:cjs",
+    "bundle": "npm run bundle:esm && npm run bundle:cjs",
+    "docs:clean": "rimraf docs/reference",
+    "docs:generate": "typedoc",
+    "docs": "npm run docs:clean && npm run docs:generate",
+    "dist": "npm run clean && npm run build && npm run test:build && npm run test && npm run bundle && npm run docs",
+    "dist:no-test": "npm run clean && npm run build && npm run bundle && npm run docs",
+    "format": "prettier --write .",
+    "prepare": "ts-patch install -s"
+  },
+  "dependencies": {
+    "@twin.org/api-models": "next",
+    "@twin.org/auditable-item-graph-models": "next",
+    "@twin.org/core": "next",
+    "@twin.org/data-core": "next",
+    "@twin.org/data-json-ld": "next",
+    "@twin.org/data-space-connector-models": "next",
+    "@twin.org/data-space-connector-rest-client": "next",
+    "@twin.org/engine-models": "next",
+    "@twin.org/entity": "next",
+    "@twin.org/federated-catalogue-models": "next",
+    "@twin.org/logging-models": "next",
+    "@twin.org/nameof": "next",
+    "@twin.org/standards-w3c-activity-streams": "next"
+  },
+  "devDependencies": {
+    "@twin.org/nameof-transformer": "next",
+    "@twin.org/nameof-vitest-plugin": "next",
+    "@types/node": "24.3.0",
+    "copyfiles": "2.4.1",
+    "nodemon": "3.1.10",
+    "prettier": "^3.6.2",
+    "rimraf": "6.0.1",
+    "rollup": "4.49.0",
+    "ts-patch": "3.3.0",
+    "typedoc": "0.28.11",
+    "typedoc-plugin-markdown": "4.8.1",
+    "typescript": "5.9.2",
+    "vitest": "3.2.4"
+  },
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.mjs"
+    },
+    "./locales/*.json": "./locales/*.json"
+  },
+  "files": [
+    "dist/cjs",
+    "dist/esm",
+    "dist/types",
+    "locales",
+    "docs"
+  ]
 }
