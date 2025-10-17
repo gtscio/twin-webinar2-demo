@@ -13,10 +13,10 @@ Logging component type.
 #### Default
 
 ```ts
-logging;
+logging
 ```
 
----
+***
 
 ### dataSpaceConnectorComponentType?
 
@@ -27,10 +27,10 @@ Data space connector component type.
 #### Default
 
 ```ts
-data - space - connector;
+data-space-connector
 ```
 
----
+***
 
 ### auditableItemGraphComponentType?
 
@@ -38,10 +38,18 @@ data - space - connector;
 
 The Auditable Item Graph Component Type.
 
----
+***
 
 ### federatedCatalogueComponentType?
 
 > `optional` **federatedCatalogueComponentType**: `string`
 
 The Federated Catalogue Component Type.
+
+***
+
+### auditableItemStreamComponentType?
+
+> `optional` **auditableItemStreamComponentType**: `string`
+
+The Auditable Item Stream Component Type.

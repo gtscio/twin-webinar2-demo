@@ -6,6 +6,7 @@ import { initSchema } from '@twin.org/data-space-connector-service';
 import type { IEngineCore, IEngineServer } from '@twin.org/engine-models';
 import {
   AuditableItemGraphComponentType,
+  AuditableItemStreamComponentType,
   FederatedCatalogueComponentType,
   type IEngineConfig,
 } from '@twin.org/engine-types';
@@ -45,6 +46,13 @@ export async function extendConfig(
       restPath: 'auditable-item-graph',
     },
   ];
+  engineConfig.types.auditableItemStreamComponent = [
+    {
+      type: AuditableItemStreamComponentType.Service,
+      options: {},
+      restPath: 'auditable-item-stream',
+    },
+  ];
   engineConfig.types.federatedCatalogueComponent = [
     {
       type: FederatedCatalogueComponentType.RestClient,
@@ -64,6 +72,12 @@ export async function extendEngine(engineCore: IEngineCore): Promise<void> {
     'auditableItemGraphComponent',
     '@twin.org/engine-types',
     'initialiseAuditableItemGraphComponent',
+  );
+
+  engineCore.addTypeInitialiser(
+    'auditableItemStreamComponent',
+    '@twin.org/engine-types',
+    'initialiseAuditableItemStreamComponent',
   );
 
   engineCore.addTypeInitialiser(
