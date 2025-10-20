@@ -26,9 +26,4 @@ export interface IWebinarAppConstructorOptions {
    * The Federated Catalogue Component Type.
    */
   federatedCatalogueComponentType?: string;
-
-  /**
-   * The Auditable Item Stream Component Type.
-   */
-  auditableItemStreamComponentType?: string;
 }
