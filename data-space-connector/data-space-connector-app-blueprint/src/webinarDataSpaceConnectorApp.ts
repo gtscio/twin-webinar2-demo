@@ -4,34 +4,25 @@
 import {
   AuditableItemGraphContexts,
   AuditableItemGraphTypes,
-  type IAuditableItemGraphEdge,
   type IAuditableItemGraphComponent,
   type IAuditableItemGraphVertex,
 } from '@twin.org/auditable-item-graph-models';
-import {
-  ComponentFactory,
-  type IError,
-  Guards,
-  Is,
-  ObjectHelper,
-} from '@twin.org/core';
+import type { IAuditableItemStreamComponent } from '@twin.org/auditable-item-stream-models';
+import { ComponentFactory, type IError, Guards } from '@twin.org/core';
 import { DataTypeHandlerFactory } from '@twin.org/data-core';
-import { type IJsonLdNodeObject } from '@twin.org/data-json-ld';
+import type { IJsonLdNodeObject } from '@twin.org/data-json-ld';
 import type {
   IActivityQuery,
   IDataSpaceConnectorApp,
   IDataSpaceConnector,
 } from '@twin.org/data-space-connector-models';
-import { DataSpaceConnectorClient } from '@twin.org/data-space-connector-rest-client';
-import { ComparisonOperator } from '@twin.org/entity';
-import type {
-  IDataSpaceConnector as IDataSpaceConnectorEntry,
-  IFederatedCatalogueComponent,
-} from '@twin.org/federated-catalogue-models';
+import type { IFederatedCatalogueComponent } from '@twin.org/federated-catalogue-models';
 import type { ILoggingComponent } from '@twin.org/logging-models';
-import { nameof } from '@twin.org/nameof';
 import type { IActivity } from '@twin.org/standards-w3c-activity-streams';
 import type { IWebinarAppConstructorOptions } from './IWebinarAppConstructorOptions';
+import { handleConsignmentCreate } from './handlers/consignmentHandler';
+import { handleDocumentAddActivity } from './handlers/documentHandler';
+import { handleEventAddActivity } from './handlers/eventHandler';
 
 /**
  * Test App Activity Handler.
@@ -40,7 +31,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
   /**
    * Runtime name for the class.
    */
-  public readonly CLASS_NAME: string = nameof<WebinarDataSpaceConnectorApp>();
+  public readonly CLASS_NAME = 'WebinarDataSpaceConnectorApp';
 
   /**
    * Logging service.
@@ -59,6 +50,11 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
    */
   private readonly _fedCatalogue: IFederatedCatalogueComponent;
 
+  /**
+   * The AIS (Auditable Item Stream) component for storing time-series event data
+   * @internal
+   */
+  private readonly _aisComponent: IAuditableItemStreamComponent;
 
   /**
    * The DS Connector Component
@@ -77,35 +73,38 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
    */
   public static readonly APP_ID = 'https://twin.example.org/app1';
 
+  private static readonly CONSIGNMENT_TYPE =
+    'https://vocabulary.uncefact.org/Consignment';
+
+  private static readonly DOCUMENT_TYPE =
+    'https://vocabulary.uncefact.org/Document';
+
+  private static readonly EVENT_TYPE = 'https://vocabulary.uncefact.org/Event';
+
+  private static readonly ACTIVITY_TYPE_CREATE = 'Create';
+
+  private static readonly ACTIVITY_TYPE_ADD = 'Add';
+
+  private static readonly ACTIVITY_IRI_CREATE =
+    'https://www.w3.org/ns/activitystreams#Create';
+
+  private static readonly ACTIVITY_IRI_ADD =
+    'https://www.w3.org/ns/activitystreams#Add';
+
+  private static readonly AUDITABLE_ITEM_STREAM_TYPE = 'AuditableItemStream';
+
+  private static readonly DOCUMENT_EDGE_RELATIONSHIP =
+    'https://vocabulary.uncefact.org/associatedDocument';
+
+  private static readonly UK_FSA_DID =
+    'did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975';
+
   /**
    * Constructor options.
    * @param options The constructor options.
    */
   constructor(options: IWebinarAppConstructorOptions) {
-    DataTypeHandlerFactory.register(
-      'https://vocabulary.uncefact.org/Consignment',
-      () => ({
-        context: 'https://vocabulary.uncefact.org/',
-        type: 'Consignment',
-        defaultValue: {},
-        jsonSchema: async () => ({
-          type: 'object',
-        }),
-      }),
-    );
-
-    DataTypeHandlerFactory.register(
-      'https://vocabulary.uncefact.org/Document',
-      () => ({
-        context: 'https://vocabulary.uncefact.org/',
-        type: 'Document',
-        defaultValue: {},
-        jsonSchema: async () => ({
-          type: 'object',
-        }),
-      }),
-    );
-
+    this.registerDataTypes();
 
     this._dataSpaceConnectorComponent =
       ComponentFactory.get<IDataSpaceConnector>(
@@ -121,6 +120,12 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 
     this._fedCatalogue = ComponentFactory.get<IFederatedCatalogueComponent>(
       options.federatedCatalogueComponentType ?? 'federated-catalogue-client',
+    );
+
+    // Initialize AIS component for event stream management
+    this._aisComponent = ComponentFactory.get<IAuditableItemStreamComponent>(
+      options.auditableItemStreamComponentType ??
+        'auditable-item-stream-service',
     );
 
     this._nodeIdentity = process.env
@@ -139,6 +144,13 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
       },
       {
         objectType: 'https://vocabulary.uncefact.org/Document',
+        targetType: 'https://vocabulary.uncefact.org/Consignment',
+        activityType: 'https://www.w3.org/ns/activitystreams#Add',
+      },
+      // NEW: Support for Event activities targeting Consignments
+      // Events are stored in Auditable Item Streams associated with consignments
+      {
+        objectType: 'https://vocabulary.uncefact.org/Event',
         targetType: 'https://vocabulary.uncefact.org/Consignment',
         activityType: 'https://www.w3.org/ns/activitystreams#Add',
       },
@@ -184,180 +196,21 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
       });
 
       switch (activityType) {
-        // An Activity Create causes a Vertex to be created
-        case 'Create': {
-          const vertexIdObject = await this.createItem(
-            activity.object,
-            userIdentity,
-            this._nodeIdentity,
-          );
-          await this._loggingService?.log({
-            level: 'info',
-            source: this.CLASS_NAME,
-            message: `Item created: ${vertexIdObject}`,
+        case WebinarDataSpaceConnectorApp.ACTIVITY_TYPE_CREATE:
+        case WebinarDataSpaceConnectorApp.ACTIVITY_IRI_CREATE:
+          await handleConsignmentCreate(activity, userIdentity, {
+            loggingService: this._loggingService,
+            createItem: this.createItem.bind(this),
+            nodeIdentity: this._nodeIdentity,
+            className: this.CLASS_NAME,
+            consignmentType: WebinarDataSpaceConnectorApp.CONSIGNMENT_TYPE,
+            isTypeMatch: this.isTypeMatch.bind(this),
           });
           break;
-        }
-
-        // An Activity Add causes a Vertex to be created and an edge between two Vertices
-        case 'Add': {
-          Guards.object<IJsonLdNodeObject>(
-            this.CLASS_NAME,
-            nameof(activity.target),
-            activity.target,
-          );
-          await this._loggingService?.log({
-            level: 'info',
-            source: this.CLASS_NAME,
-            message: `Activity's target of type: ${activity.target?.type} is valid`,
-          });
-
-          // Handle Document activities (existing logic)
-          // Now the new vertex is created
-          const aig: Omit<IAuditableItemGraphVertex, 'id'> = {
-            '@context': [
-              AuditableItemGraphContexts.ContextRoot,
-              AuditableItemGraphContexts.ContextRootCommon,
-            ],
-            type: AuditableItemGraphTypes.Vertex,
-            annotationObject: activity.object,
-          };
-          const objectVertexId = await this._aigComponent.create(
-            aig,
-            userIdentity,
-            this._nodeIdentity,
-          );
-          await this._loggingService?.log({
-            level: 'info',
-            source: this.CLASS_NAME,
-            message: `Object's Vertex created: ${objectVertexId}`,
-          });
-
-          // Now query to check whether there is an existing target with that Id and then create a relationship
-          // As we are handling Documents and Consignment as per UN/CEFACT we are using `globalId`
-          const results = await this._aigComponent.query(undefined, [
-            {
-              property: 'annotationObject.globalId',
-              value: activity.target.globalId,
-              comparison: ComparisonOperator.Equals,
-            },
-          ]);
-          // In this case if the target does not exist it is created a new target
-          // There can be cases where the target must exist
-          let targetVertexId: string = '';
-          if (results.itemListElement.length === 0) {
-            targetVertexId = await this.createItem(
-              activity.target,
-              userIdentity,
-              this._nodeIdentity,
-            );
-            await this._loggingService?.log({
-              level: 'info',
-              source: this.CLASS_NAME,
-              message: `New Vertex for target created: ${targetVertexId}`,
-            });
-          } else {
-            targetVertexId = results.itemListElement[0].id;
-            // AIG vertex of the target
-            await this._loggingService?.log({
-              level: 'info',
-              source: this.CLASS_NAME,
-              message: `Valid target found. Vertex: ${results.itemListElement[0].id}`,
-            });
-          }
-
-          // We assume the edge relationship concerns a Document
-          const edge: IAuditableItemGraphEdge = {
-            '@context': [
-              AuditableItemGraphContexts.ContextRoot,
-              AuditableItemGraphContexts.ContextRootCommon,
-            ],
-            targetId: objectVertexId,
-            type: AuditableItemGraphTypes.Edge,
-            edgeRelationships: [
-              'https://vocabulary.uncefact.org/associatedDocument',
-            ],
-          };
-          // The target is then updated to also have an edge to the object just created
-          const updateObject = {
-            id: targetVertexId,
-            annotationObject: activity.target,
-            edges: [edge],
-          };
-          await this._aigComponent.update(
-            updateObject,
-            userIdentity,
-            this._nodeIdentity,
-          );
-
-          // This is for notifying other Participants
-          const consignmentData =
-            results.itemListElement[0]?.annotationObject;
-          if (!Is.undefined(consignmentData)) {
-            const commodity = consignmentData?.exportTypeCode;
-            const destCountry = consignmentData?.destinationCountry as {
-              countryId: string;
-            };
-            const destinationCountry = destCountry?.countryId;
-            const documentTypeCode = activity.object
-              .documentTypeCode as string;
-
-            if (
-              commodity === '09011101' &&
-              destinationCountry &&
-              destinationCountry.includes('#GB') &&
-              documentTypeCode.includes('#853')
-            ) {
-              // Find the FSA endpoint to notify such a Participant
-              const dsConnectors =
-                await this._fedCatalogue.queryDataSpaceConnectors(
-                  undefined,
-                  // The DID of the UK FSA
-                  'did:iota:testnet:0x83e99fd9b8804966fd474da212aa93a5769f39f2150714a3c6701d20b5353975',
-                );
-              const dsConnector = dsConnectors
-                .itemListElement[0] as IDataSpaceConnectorEntry;
-              const endpoint = dsConnector.defaultEndpoint?.endpointURL;
-              await this._loggingService?.log({
-                level: 'info',
-                source: this.CLASS_NAME,
-                message: `Endpoint to notify: ${endpoint}`,
-              });
-
-              const dsConnectorRestClient = new DataSpaceConnectorClient({
-                endpoint,
-              });
-              let notifyInError = false;
-              try {
-                const notifiedActivity =
-                  ObjectHelper.clone<IActivity>(activity);
-                notifiedActivity.generator = this._nodeIdentity;
-                // Workaround due to a bug in validation
-                delete notifiedActivity.object['@context'];
-                if (notifiedActivity.target) {
-                  delete notifiedActivity.target['@context'];
-                }
-                await dsConnectorRestClient.notifyActivity(notifiedActivity);
-              } catch (error) {
-                const theError = error as IError;
-                await this._loggingService?.log({
-                  level: 'warn',
-                  source: this.CLASS_NAME,
-                  message: `Cannot notify ${endpoint}. Error: ${theError}`,
-                });
-                notifyInError = true;
-              }
-              if (!notifyInError) {
-                await this._loggingService?.log({
-                  level: 'debug',
-                  source: this.CLASS_NAME,
-                  message: `Endpoint successfully notified: ${endpoint}`,
-                });
-              }
-            }
-          }
+        case WebinarDataSpaceConnectorApp.ACTIVITY_TYPE_ADD:
+        case WebinarDataSpaceConnectorApp.ACTIVITY_IRI_ADD:
+          await this.routeAddActivity(activity, userIdentity);
           break;
-        }
       }
     } catch (error) {
       const theErr = error as IError;
@@ -400,5 +253,124 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
     );
 
     return vertexIdObject;
+  }
+
+  private registerDataTypes(): void {
+    DataTypeHandlerFactory.register(
+      WebinarDataSpaceConnectorApp.CONSIGNMENT_TYPE,
+      () => ({
+        context: 'https://vocabulary.uncefact.org/',
+        type: 'Consignment',
+        defaultValue: {},
+        jsonSchema: async () => ({
+          type: 'object',
+        }),
+      }),
+    );
+
+    DataTypeHandlerFactory.register(
+      WebinarDataSpaceConnectorApp.DOCUMENT_TYPE,
+      () => ({
+        context: 'https://vocabulary.uncefact.org/',
+        type: 'Document',
+        defaultValue: {},
+        jsonSchema: async () => ({
+          type: 'object',
+        }),
+      }),
+    );
+
+    DataTypeHandlerFactory.register(
+      WebinarDataSpaceConnectorApp.EVENT_TYPE,
+      () => ({
+        context: 'https://vocabulary.uncefact.org/',
+        type: 'Event',
+        defaultValue: {},
+        jsonSchema: async () => ({
+          type: 'object',
+          properties: {
+            type: { type: 'string' },
+            timestamp: { type: 'string', format: 'date-time' },
+            location: { type: 'string' },
+            status: { type: 'string' },
+          },
+          required: ['type', 'timestamp', 'location', 'status'],
+        }),
+      }),
+    );
+  }
+
+  private async routeAddActivity(
+    activity: IActivity,
+    userIdentity: string,
+  ): Promise<void> {
+    Guards.object<IJsonLdNodeObject>(
+      this.CLASS_NAME,
+      'activity.object',
+      activity.object,
+    );
+    Guards.object<IJsonLdNodeObject>(
+      this.CLASS_NAME,
+      'activity.target',
+      activity.target,
+    );
+
+    await this._loggingService?.log({
+      level: 'info',
+      source: this.CLASS_NAME,
+      message: `Activity's target of type: ${activity.target?.type} is valid`,
+    });
+
+    if (
+      this.isTypeMatch(
+        activity.object.type as string | string[] | undefined,
+        WebinarDataSpaceConnectorApp.EVENT_TYPE,
+      )
+    ) {
+      await handleEventAddActivity(activity, userIdentity, {
+        loggingService: this._loggingService,
+        nodeIdentity: this._nodeIdentity,
+        className: this.CLASS_NAME,
+        aigComponent: this._aigComponent,
+        aisComponent: this._aisComponent,
+        auditableItemStreamType:
+          WebinarDataSpaceConnectorApp.AUDITABLE_ITEM_STREAM_TYPE,
+      });
+      return;
+    }
+
+    if (
+      this.isTypeMatch(
+        activity.object.type as string | string[] | undefined,
+        WebinarDataSpaceConnectorApp.DOCUMENT_TYPE,
+      )
+    ) {
+      await handleDocumentAddActivity(activity, userIdentity, {
+        loggingService: this._loggingService,
+        nodeIdentity: this._nodeIdentity,
+        className: this.CLASS_NAME,
+        aigComponent: this._aigComponent,
+        fedCatalogue: this._fedCatalogue,
+        createItem: this.createItem.bind(this),
+        documentEdgeRelationship:
+          WebinarDataSpaceConnectorApp.DOCUMENT_EDGE_RELATIONSHIP,
+        targetParticipantDid: WebinarDataSpaceConnectorApp.UK_FSA_DID,
+      });
+      return;
+    }
+
+    throw new Error(
+      `Unsupported Add activity for type ${activity.object.type}`,
+    );
+  }
+
+  private isTypeMatch(
+    actualType: string | string[] | undefined,
+    expectedType: string,
+  ): boolean {
+    if (Array.isArray(actualType)) {
+      return actualType.includes(expectedType);
+    }
+    return actualType === expectedType;
   }
 }
