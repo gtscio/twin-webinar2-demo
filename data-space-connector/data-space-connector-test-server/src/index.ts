@@ -61,6 +61,18 @@ export async function extendConfig(
       },
     },
   ];
+  engineConfig.types.webinarAppComponent = [
+    {
+      type: 'service',
+      options: {},
+    },
+  ];
+  engineConfig.types.eventAppComponent = [
+    {
+      type: 'service',
+      options: {},
+    },
+  ];
 }
 
 /**
@@ -85,6 +97,18 @@ export async function extendEngine(engineCore: IEngineCore): Promise<void> {
     '@twin.org/engine-types',
     'initialiseFederatedCatalogueComponent',
   );
+
+  engineCore.addTypeInitialiser(
+    'webinarAppComponent',
+    '@twindev.org/data-space-connector-webinar-app',
+    'webinarAppInitialiser',
+  );
+
+  engineCore.addTypeInitialiser(
+    'eventAppComponent',
+    '@twindev.org/data-space-connector-event-app',
+    'eventAppInitialiser',
+  );
 }
 
 /**
@@ -93,4 +117,16 @@ export async function extendEngine(engineCore: IEngineCore): Promise<void> {
  */
 export async function extendEngineServer(
   server: IEngineServer,
-): Promise<void> {}
+): Promise<void> {
+  server.addRestRouteGenerator(
+    'webinarAppComponent',
+    '@twindev.org/data-space-connector-webinar-app',
+    'generateRestRoutes',
+  );
+
+  server.addRestRouteGenerator(
+    'eventAppComponent',
+    '@twindev.org/data-space-connector-event-app',
+    'generateRestRoutes',
+  );
+}

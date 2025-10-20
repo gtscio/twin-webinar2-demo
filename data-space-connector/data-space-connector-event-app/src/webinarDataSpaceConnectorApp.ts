@@ -31,7 +31,7 @@ import type {
 import type { ILoggingComponent } from '@twin.org/logging-models';
 import { nameof } from '@twin.org/nameof';
 import type { IActivity } from '@twin.org/standards-w3c-activity-streams';
-import type { IWebinarAppConstructorOptions } from './IWebinarAppConstructorOptions';
+import { IEventAppConstructorOptions } from './IEventAppConstructorOptions';
 
 /**
  * Test App Activity Handler.
@@ -80,7 +80,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
    * Constructor options.
    * @param options The constructor options.
    */
-  constructor(options: IWebinarAppConstructorOptions) {
+  constructor(options: IEventAppConstructorOptions) {
     DataTypeHandlerFactory.register(
       'https://vocabulary.uncefact.org/Consignment',
       () => ({
@@ -210,6 +210,7 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
             message: `Activity's target of type: ${activity.target?.type} is valid`,
           });
 
+          // Handle Document activities (existing logic)
           // Now the new vertex is created
           const aig: Omit<IAuditableItemGraphVertex, 'id'> = {
             '@context': [

@@ -34,7 +34,8 @@
     "@twin.org/entity": "next",
     "@twin.org/nameof": "next",
     "@twin.org/node-core": "next",
-    "@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint"
+    "@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint",
+    "@twindev.org/data-space-connector-event-app": "file://../data-space-connector-event-app"
   },
   "devDependencies": {
     "@twin.org/entity-storage-connector-memory": "next",
