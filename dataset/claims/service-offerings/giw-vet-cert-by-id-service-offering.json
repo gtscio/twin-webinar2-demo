@@ -1,48 +1,48 @@
 {
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-vet-cert-by-id.json",
-    "credentialSubject": {
-        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-        "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567-by-id",
-        "type": "ServiceOffering",
-        "name": "VetCert Service Offering",
-        "description": "Allows to retrieve Veterinary Certificates by Id to exporters registered in Poland",
-        "servicePolicy": {
-            "@context": [
-                "http://www.w3.org/ns/odrl.jsonld",
-                {
-                    "twin": "https://w3id.org/twin/odrl/",
-                    "jsonPathSelector": "twin:jsonPathSelector"
-                }
-            ],
-            "@type": "Agreement",
-            "uid": "http://example.com/policy:1010",
-            "permission": [
-                {
-                    "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-                    "assignee": {
-                        "@type": "PartyCollection",
-                        "refinement": {
-                            "leftOperand": {
-                                "@id": "https://w3id.org/twin/odrl/propertyValue",
-                                "jsonPathSelector": ".legalAddress.countryCode"
-                            },
-                            "operator": "eq",
-                            "rightOperand": "PL"
-                        }
-                    },
-                    "target": {
-                        "type": ["Asset", "https://vocabulary.uncefact.org/Document"]
-                    },
-                    "action": "read"
-                }
-            ]
-        },
-        "aggregationOfResources": [
-            "https://twin.example.org/data-resources/vet-cert-doc-6ce567"
-        ],
-        "providedBy": {
-            "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
-            "type": "LegalPerson"
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/service-offering-vet-cert-by-id.json",
+  "credentialSubject": {
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+    "id": "https://twin.example.org/service-offerings/service-offering-vet-doc-6ce567-by-id",
+    "type": "ServiceOffering",
+    "name": "VetCert Service Offering",
+    "description": "Allows to retrieve Veterinary Certificates by Id to exporters registered in Poland",
+    "servicePolicy": {
+      "@context": [
+        "http://www.w3.org/ns/odrl.jsonld",
+        {
+          "twin": "https://w3id.org/twin/odrl/",
+          "jsonPathSelector": "twin:jsonPathSelector"
         }
+      ],
+      "@type": "Agreement",
+      "uid": "http://example.com/policy:1010",
+      "permission": [
+        {
+          "assigner": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+          "assignee": {
+            "@type": "PartyCollection",
+            "refinement": {
+              "leftOperand": {
+                "@id": "https://w3id.org/twin/odrl/propertyValue",
+                "jsonPathSelector": ".legalAddress.countryCode"
+              },
+              "operator": "eq",
+              "rightOperand": "PL"
+            }
+          },
+          "target": {
+            "type": ["Asset", "https://vocabulary.uncefact.org/Document"]
+          },
+          "action": "read"
+        }
+      ]
+    },
+    "aggregationOfResources": [
+      "https://twin.example.org/data-resources/vet-cert-doc-6ce567"
+    ],
+    "providedBy": {
+      "id": "did:iota:testnet:0xfcfa55894cab90504af7eaf38087addd5f77791a89bd3ebbe76d9c2b1a6ce567",
+      "type": "LegalPerson"
     }
+  }
 }

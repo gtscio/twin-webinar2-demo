@@ -8,40 +8,40 @@ const plugins = [];
 
 const globs = {};
 if (packageDetails.dependencies) {
-	for (const dep in packageDetails.dependencies) {
-		globs[dep] = dep;
-	}
+  for (const dep in packageDetails.dependencies) {
+    globs[dep] = dep;
+  }
 }
 if (packageDetails.peerDependencies) {
-	for (const dep in packageDetails.peerDependencies) {
-		globs[dep] = dep;
-	}
+  for (const dep in packageDetails.peerDependencies) {
+    globs[dep] = dep;
+  }
 }
 if (packageDetails.devDependencies) {
-	for (const dep in packageDetails.devDependencies) {
-		globs[dep] = dep;
-	}
+  for (const dep in packageDetails.devDependencies) {
+    globs[dep] = dep;
+  }
 }
 
 export default {
-	input: `./dist/es/index.js`,
-	output: {
-		file: isEsm ? `dist/esm/index.mjs` : `dist/cjs/index.cjs`,
-		format: isEsm ? 'esm' : 'cjs',
-		name: packageDetails.name
-			.split('-')
-			.map(p => p[0].toUpperCase() + p.slice(1))
-			.join(''),
-		compact: false,
-		exports: 'named',
-		globals: globs
-	},
-	external: [/^node:.*/].concat(Object.keys(globs)),
-	onwarn: message => {
-		if (!['EMPTY_BUNDLE', 'CIRCULAR_DEPENDENCY'].includes(message.code)) {
-			process.stderr.write(`${message}\n`);
-			process.exit(1);
-		}
-	},
-	plugins
+  input: `./dist/es/index.js`,
+  output: {
+    file: isEsm ? `dist/esm/index.mjs` : `dist/cjs/index.cjs`,
+    format: isEsm ? 'esm' : 'cjs',
+    name: packageDetails.name
+      .split('-')
+      .map((p) => p[0].toUpperCase() + p.slice(1))
+      .join(''),
+    compact: false,
+    exports: 'named',
+    globals: globs,
+  },
+  external: [/^node:.*/].concat(Object.keys(globs)),
+  onwarn: (message) => {
+    if (!['EMPTY_BUNDLE', 'CIRCULAR_DEPENDENCY'].includes(message.code)) {
+      process.stderr.write(`${message}\n`);
+      process.exit(1);
+    }
+  },
+  plugins,
 };

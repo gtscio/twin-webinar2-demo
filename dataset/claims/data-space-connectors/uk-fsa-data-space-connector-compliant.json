@@ -4,10 +4,7 @@
       "https://schema.twindev.org/gaia-x-loire/types.jsonld",
       "https://schema.twindev.org/federated-catalogue/types.jsonld"
     ],
-    "type": [
-      "DataExchangeComponent",
-      "DataSpaceConnector"
-    ]
+    "type": ["DataExchangeComponent", "DataSpaceConnector"]
   },
   "evidence": [
     {

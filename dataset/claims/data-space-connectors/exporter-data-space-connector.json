@@ -1,38 +1,35 @@
 {
-    "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-exporter.json",
-    "credentialSubject": {
-        "@context": [
-            "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-            "https://schema.twindev.org/federated-catalogue/types.jsonld"
-        ],
-        "id": "https://my-ds-connectors.example.org/ds-connector-exporter",
-        "type": [
-            "DataSpaceConnector",
-            "DataExchangeComponent"
-        ],
-        "identity": "did:iota:123456",
-        "defaultEndpoint": {
-            "endpointURL": "http://localhost:11111/data-space-connector"
-        },
-        "subscriptionActivityEndpoint": {
-            "endpointURL": "/subscriptions"
-        },
-        "pushActivityEndpoint": {
-            "endpointURL": "/notify"
-        },
-        "pullDataEndpoint": {
-            "endpointURL": "/data"
-        },
-        "offeredResource": {
-            "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
-                "type": "DataResource",
-                "name": "Consignments Resource"
-            },
-            "https://twin.example.org/data-resources/exporter-docs-817a9d": {
-                "type": "DataResource",
-                "name": "Documents Resource"
-            }
-        },
-        "maintainer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
-    }
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/data-space-connector-exporter.json",
+  "credentialSubject": {
+    "@context": [
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "id": "https://my-ds-connectors.example.org/ds-connector-exporter",
+    "type": ["DataSpaceConnector", "DataExchangeComponent"],
+    "identity": "did:iota:123456",
+    "defaultEndpoint": {
+      "endpointURL": "http://localhost:11111/data-space-connector"
+    },
+    "subscriptionActivityEndpoint": {
+      "endpointURL": "/subscriptions"
+    },
+    "pushActivityEndpoint": {
+      "endpointURL": "/notify"
+    },
+    "pullDataEndpoint": {
+      "endpointURL": "/data"
+    },
+    "offeredResource": {
+      "https://twin.example.org/data-resources/exporter-consignments-817a9d": {
+        "type": "DataResource",
+        "name": "Consignments Resource"
+      },
+      "https://twin.example.org/data-resources/exporter-docs-817a9d": {
+        "type": "DataResource",
+        "name": "Documents Resource"
+      }
+    },
+    "maintainer": "did:iota:testnet:0x1ee831611a9fe9877c82e05075d9670c4970b4fd0904c208082ee50e45817a9d"
+  }
 }

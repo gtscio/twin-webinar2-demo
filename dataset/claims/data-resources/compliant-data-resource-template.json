@@ -1,14 +1,14 @@
 {
-    "credentialSubject": {
-        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-        "type": "DataResource"
-    },
-    "evidence": [
-        {
-            "type": "CompliantCredential",
-            "id": "",
-            "credentialType": "VerifiableCredential",
-            "digestSRI": ""
-        }
-    ]
+  "credentialSubject": {
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+    "type": "DataResource"
+  },
+  "evidence": [
+    {
+      "type": "CompliantCredential",
+      "id": "",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": ""
+    }
+  ]
 }

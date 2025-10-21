@@ -1,8 +1,8 @@
 {
-	"id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json",
-	"credentialSubject": {
-		"@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-		"type": "TermsAndConditions",
-		"digestSRI": "sha256-0aXialGx6tzl9LQVIoVSkkDv6LCdYvJIcy4e5l7vNjU="
-	}
+  "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-terms-and-conditions.json",
+  "credentialSubject": {
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+    "type": "TermsAndConditions",
+    "digestSRI": "sha256-0aXialGx6tzl9LQVIoVSkkDv6LCdYvJIcy4e5l7vNjU="
+  }
 }

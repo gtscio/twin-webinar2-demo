@@ -1,17 +1,17 @@
 {
-	"credentialSubject": {
-		"@context": [
-			"https://schema.twindev.org/gaia-x-loire/types.jsonld",
-			"https://schema.twindev.org/federated-catalogue/types.jsonld"
-		],
-		"type": ["DataExchangeComponent", "DataSpaceConnector"]
-	},
-	"evidence": [
-		{
-			"type": "CompliantCredential",
-			"id": "",
-			"credentialType": "VerifiableCredential",
-			"digestSRI": ""
-		}
-	]
+  "credentialSubject": {
+    "@context": [
+      "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+      "https://schema.twindev.org/federated-catalogue/types.jsonld"
+    ],
+    "type": ["DataExchangeComponent", "DataSpaceConnector"]
+  },
+  "evidence": [
+    {
+      "type": "CompliantCredential",
+      "id": "",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": ""
+    }
+  ]
 }

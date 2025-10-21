@@ -4,9 +4,7 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "https://gtscio.github.io/twin-webinar2-demo/public-credentials/ffw-data-resource-docs.json",
-  "type": [
-    "VerifiableCredential"
-  ],
+  "type": ["VerifiableCredential"],
   "issuer": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
   "validFrom": "2025-10-09T15:38:53Z",
   "validUntil": "2028-01-20T23:38:53Z",
@@ -30,10 +28,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "type",
-          "documentTypeCode"
-        ],
+        "required": ["type", "documentTypeCode"],
         "type": "object"
       },
       "type": "JsonSchema"
@@ -51,9 +46,7 @@
       "type": "LegalPerson"
     },
     "resourcePolicy": {
-      "@context": [
-        "http://www.w3.org/ns/odrl.jsonld"
-      ],
+      "@context": ["http://www.w3.org/ns/odrl.jsonld"],
       "@type": "Offer",
       "assigner": "did:iota:testnet:0xac534b750ac453d573a55954760af140f87358c7be9a18000a831c452c32f246",
       "permission": [

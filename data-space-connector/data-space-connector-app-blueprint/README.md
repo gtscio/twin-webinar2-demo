@@ -9,4 +9,4 @@ npm install
 npm run dist
 ```
 
-Then you need to reference this package from 
+Then you need to reference this package from

@@ -1,13 +1,13 @@
 {
-    "name": "twin-webinar2-demo",
-    "version": "1.0.0",
-    "description": "A project using @twin.org/standards-w3c-did",
-    "type": "module",
-    "main": "index.js",
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-      "@twin.org/standards-w3c-did": "next",
-      "@twin.org/crypto": "next"
-    }
+  "name": "twin-webinar2-demo",
+  "version": "1.0.0",
+  "description": "A project using @twin.org/standards-w3c-did",
+  "type": "module",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@twin.org/standards-w3c-did": "next",
+    "@twin.org/crypto": "next"
   }
+}

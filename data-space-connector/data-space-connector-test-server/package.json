@@ -1,54 +1,55 @@
 {
-	"name": "@twindev.org/test-data-space-connector-rest-server",
-	"version": "0.0.1",
-	"description": "Test Data Space Connector REST Service",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gtscio/twin-webinar2-demo.git",
-		"directory": "data-space-connector/data-space-connector-test-server"
-	},
-	"private": true,
-	"author": "jose.cantera@iota.org",
-	"license": "Apache-2.0",
-	"type": "module",
-	"engines": {
-		"node": ">=20.0.0"
-	},
-	"scripts": {
-		"clean": "rimraf dist coverage",
-		"build": "tsc",
-		"dev": "concurrently \"tsc --watch\" \"nodemon\"",
-		"merge-locales": "merge-locales",
-		"dist": "npm run clean && npm run build && npm run merge-locales",
-		"start": "node dist/es/index.js",
-		"prepare": "ts-patch install -s"
-	},
-	"dependencies": {
-		"@twin.org/core": "next",
-		"@twin.org/data-space-connector-models": "next",
-		"@twin.org/data-space-connector-service": "next",
-		"@twin.org/engine": "next",
-		"@twin.org/engine-types": "next",
-		"@twin.org/engine-models": "next",
-		"@twin.org/entity": "next",
-		"@twin.org/nameof": "next",
-		"@twin.org/node-core": "next",
-		"@twin.org/data-space-connector-app-runner": "next",
-		"@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint"
-	},
-	"devDependencies": {
-		"@twin.org/entity-storage-connector-memory": "next",
-		"@twin.org/merge-locales": "next",
-		"@twin.org/nameof-transformer": "next",
-		"@twin.org/nameof-vitest-plugin": "next",
-		"@twin.org/ts-to-openapi": "next",
-		"@types/node": "24.3.0",
-		"concurrently": "9.2.1",
-		"copyfiles": "2.4.1",
-		"cross-env": "10.0.0",
-		"nodemon": "3.1.10",
-		"rimraf": "6.0.1",
-		"ts-patch": "3.3.0",
-		"typescript": "5.9.2"
-	}
+  "name": "@twindev.org/test-data-space-connector-rest-server",
+  "version": "0.0.1",
+  "description": "Test Data Space Connector REST Service",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtscio/twin-webinar2-demo.git",
+    "directory": "data-space-connector/data-space-connector-test-server"
+  },
+  "private": true,
+  "author": "jose.cantera@iota.org",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist coverage",
+    "build": "tsc",
+    "dev": "concurrently \"tsc --watch\" \"nodemon\"",
+    "merge-locales": "merge-locales",
+    "dist": "npm run clean && npm run build && npm run merge-locales",
+    "start": "node dist/es/index.js",
+    "prepare": "ts-patch install -s"
+  },
+  "dependencies": {
+    "@twin.org/core": "next",
+    "@twin.org/data-space-connector-app-runner": "next",
+    "@twin.org/data-space-connector-models": "next",
+    "@twin.org/data-space-connector-service": "next",
+    "@twin.org/engine": "next",
+    "@twin.org/engine-models": "next",
+    "@twin.org/engine-types": "next",
+    "@twin.org/entity": "next",
+    "@twin.org/nameof": "next",
+    "@twin.org/node-core": "next",
+    "@twindev.org/data-space-connector-webinar-app": "file://../data-space-connector-app-blueprint"
+  },
+  "devDependencies": {
+    "@twin.org/entity-storage-connector-memory": "next",
+    "@twin.org/merge-locales": "next",
+    "@twin.org/nameof-transformer": "next",
+    "@twin.org/nameof-vitest-plugin": "next",
+    "@twin.org/ts-to-openapi": "next",
+    "@types/node": "24.3.0",
+    "concurrently": "9.2.1",
+    "copyfiles": "2.4.1",
+    "cross-env": "10.0.0",
+    "nodemon": "3.1.10",
+    "prettier": "^3.6.2",
+    "rimraf": "6.0.1",
+    "ts-patch": "3.3.0",
+    "typescript": "5.9.2"
+  }
 }

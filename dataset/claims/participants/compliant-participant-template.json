@@ -1,20 +1,20 @@
 {
-    "credentialSubject": {
-        "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
-        "type": "LegalEntity"
+  "credentialSubject": {
+    "@context": "https://schema.twindev.org/gaia-x-loire/types.jsonld",
+    "type": "LegalEntity"
+  },
+  "evidence": [
+    {
+      "type": "CompliantCredential",
+      "id": "",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": ""
     },
-    "evidence": [
-        {
-            "type": "CompliantCredential",
-            "id": "",
-            "credentialType": "VerifiableCredential",
-            "digestSRI": ""
-        },
-        {
-            "type": "CompliantCredential",
-            "id": "",
-            "credentialType": "VerifiableCredential",
-            "digestSRI": ""
-        }
-    ]
+    {
+      "type": "CompliantCredential",
+      "id": "",
+      "credentialType": "VerifiableCredential",
+      "digestSRI": ""
+    }
+  ]
 }
