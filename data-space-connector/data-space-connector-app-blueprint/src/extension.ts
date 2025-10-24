@@ -90,6 +90,9 @@ export async function webinarAppInitialiser(
       ),
       loggingComponentType:
         engineCore.getRegisteredInstanceType('loggingComponent'),
+      auditableItemStreamComponentType: engineCore.getRegisteredInstanceType(
+        'auditableItemStreamComponent',
+      ),
       ...instanceConfig.options,
     });
     instanceType = WebinarDataSpaceConnectorApp.APP_ID;

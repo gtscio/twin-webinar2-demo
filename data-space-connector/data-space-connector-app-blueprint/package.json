@@ -46,7 +46,8 @@
     "@twin.org/federated-catalogue-models": "next",
     "@twin.org/logging-models": "next",
     "@twin.org/nameof": "next",
-    "@twin.org/standards-w3c-activity-streams": "next"
+    "@twin.org/standards-w3c-activity-streams": "next",
+    "@twin.org/auditable-item-stream-models": "next"
   },
   "devDependencies": {
     "@twin.org/nameof-transformer": "next",
