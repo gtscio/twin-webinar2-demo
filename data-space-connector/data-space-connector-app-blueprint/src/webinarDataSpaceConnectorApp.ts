@@ -7,6 +7,7 @@ import {
   type IAuditableItemGraphEdge,
   type IAuditableItemGraphComponent,
   type IAuditableItemGraphVertex,
+  type IAuditableItemGraphResource,
 } from '@twin.org/auditable-item-graph-models';
 import {
   ComponentFactory,
@@ -32,6 +33,11 @@ import type { ILoggingComponent } from '@twin.org/logging-models';
 import { nameof } from '@twin.org/nameof';
 import type { IActivity } from '@twin.org/standards-w3c-activity-streams';
 import type { IWebinarAppConstructorOptions } from './IWebinarAppConstructorOptions';
+import type { IAuditableItemStreamComponent } from '@twin.org/auditable-item-stream-models';
+import {
+  AuditableItemStreamContexts,
+  AuditableItemStreamTypes,
+} from '@twin.org/auditable-item-stream-models';
 
 /**
  * Test App Activity Handler.
@@ -58,6 +64,12 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
    * The Federated Catalogue
    */
   private readonly _fedCatalogue: IFederatedCatalogueComponent;
+
+  /**
+   * The AIS
+   * @internal
+   */
+  private readonly _aisComponent: IAuditableItemStreamComponent;
 
   /**
    * The DS Connector Component
@@ -105,6 +117,18 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
       }),
     );
 
+    DataTypeHandlerFactory.register(
+      'https://vocabulary.uncefact.org/TTObjectEvent',
+      () => ({
+        context: 'https://vocabulary.uncefact.org/',
+        type: 'TTObjectEvent',
+        defaultValue: {},
+        jsonSchema: async () => ({
+          type: 'object',
+        }),
+      }),
+    );
+
     this._dataSpaceConnectorComponent =
       ComponentFactory.get<IDataSpaceConnector>(
         options?.dataSpaceConnectorComponentType ?? 'data-space-connector',
@@ -119,6 +143,11 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
 
     this._fedCatalogue = ComponentFactory.get<IFederatedCatalogueComponent>(
       options.federatedCatalogueComponentType ?? 'federated-catalogue-client',
+    );
+
+    this._aisComponent = ComponentFactory.get<IAuditableItemStreamComponent>(
+      options.auditableItemStreamComponentType ??
+        'auditable-item-stream-service',
     );
 
     this._nodeIdentity = process.env
@@ -137,6 +166,11 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
       },
       {
         objectType: 'https://vocabulary.uncefact.org/Document',
+        targetType: 'https://vocabulary.uncefact.org/Consignment',
+        activityType: 'https://www.w3.org/ns/activitystreams#Add',
+      },
+      {
+        objectType: 'https://vocabulary.uncefact.org/TTObjectEvent',
         targetType: 'https://vocabulary.uncefact.org/Consignment',
         activityType: 'https://www.w3.org/ns/activitystreams#Add',
       },
@@ -209,6 +243,14 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
             source: this.CLASS_NAME,
             message: `Activity's target of type: ${activity.target?.type} is valid`,
           });
+
+          if (
+            activity.object.type ===
+            'https://vocabulary.uncefact.org/TTObjectEvent'
+          ) {
+            await this.handleEventAdd(activity, userIdentity);
+            break;
+          }
 
           // Now the new vertex is created
           const aig: Omit<IAuditableItemGraphVertex, 'id'> = {
@@ -395,5 +437,77 @@ export class WebinarDataSpaceConnectorApp implements IDataSpaceConnectorApp {
     );
 
     return vertexIdObject;
+  }
+
+  private async handleEventAdd(
+    activity: IActivity,
+    userIdentity: string,
+  ): Promise<void> {
+    const search = await this._aigComponent.query(undefined, [
+      {
+        property: 'annotationObject.globalId',
+        value: (activity.target as { globalId: string }).globalId,
+        comparison: ComparisonOperator.Equals,
+      },
+    ]);
+    const consignmentVertexId =
+      search.itemListElement[0]?.id ??
+      (await this.createItem(
+        activity.target as IJsonLdNodeObject,
+        userIdentity,
+        this._nodeIdentity,
+      ));
+
+    const consignmentVertex = await this._aigComponent.get(consignmentVertexId);
+
+    let streamId = consignmentVertex.resources?.find(
+      (r) => r.resourceObject?.type === AuditableItemStreamTypes.Stream,
+    )?.resourceObject?.id as string | undefined;
+
+    if (!streamId) {
+      streamId = await this._aisComponent.create(
+        {
+          annotationObject: {
+            '@context': [
+              AuditableItemStreamContexts.ContextRoot,
+              AuditableItemStreamContexts.ContextRootCommon,
+            ],
+            type: AuditableItemStreamTypes.Stream,
+          },
+        },
+        undefined,
+        userIdentity,
+        this._nodeIdentity,
+      );
+
+      const newResource: IAuditableItemGraphResource = {
+        '@context': AuditableItemGraphContexts.ContextRoot,
+        type: AuditableItemGraphTypes.Resource,
+        resourceObject: {
+          '@context': [
+            AuditableItemStreamContexts.ContextRoot,
+            AuditableItemStreamContexts.ContextRootCommon,
+          ],
+          type: AuditableItemStreamTypes.Stream,
+          id: streamId,
+        },
+      };
+
+      await this._aigComponent.update(
+        {
+          id: consignmentVertexId,
+          resources: [...(consignmentVertex.resources ?? []), newResource],
+        },
+        userIdentity,
+        this._nodeIdentity,
+      );
+    }
+
+    await this._aisComponent.createEntry(
+      streamId,
+      activity.object as unknown as IJsonLdNodeObject,
+      userIdentity,
+      this._nodeIdentity,
+    );
   }
 }

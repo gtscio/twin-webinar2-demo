@@ -9,6 +9,7 @@ import {
   FederatedCatalogueComponentType,
   type IEngineConfig,
 } from '@twin.org/engine-types';
+import { AuditableItemStreamComponentType } from '@twin.org/engine-types';
 import { INodeEnvironmentVariables, run } from '@twin.org/node-core';
 import * as dotenv from 'dotenv';
 
@@ -53,6 +54,13 @@ export async function extendConfig(
       },
     },
   ];
+  engineConfig.types.auditableItemStreamComponent = [
+    {
+      type: AuditableItemStreamComponentType.Service,
+      options: {},
+      restPath: 'auditable-item-stream',
+    },
+  ];
 }
 
 /**
@@ -70,6 +78,12 @@ export async function extendEngine(engineCore: IEngineCore): Promise<void> {
     'federatedCatalogueComponent',
     '@twin.org/engine-types',
     'initialiseFederatedCatalogueComponent',
+  );
+
+  engineCore.addTypeInitialiser(
+    'auditableItemStreamComponent',
+    '@twin.org/engine-types',
+    'initialiseAuditableItemStreamComponent',
   );
 }
 
